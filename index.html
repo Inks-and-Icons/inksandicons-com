@@ -1,0 +1,1121 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Inks & Icons â€” Ian Schumacher, Designer</title>
+  <meta name="description" content="The work of Ian Schumacher â€” senior graphic designer and brand strategist. 12+ years across brand identity, print, digital, apparel, and environmental design." />
+  <meta property="og:title" content="Inks & Icons â€” Ian Schumacher" />
+  <meta property="og:description" content="Senior designer. 12+ years. 7 brands. 475+ locations. The work." />
+  <meta property="og:image" content="og-image-inks.jpg" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://inksandicons.com" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Inks & Icons â€” Ian Schumacher" />
+  <meta name="twitter:description" content="Senior designer. 12+ years. 7 brands. 475+ locations. The work." />
+  <meta name="twitter:image" content="og-image-inks.jpg" />
+  <meta name="theme-color" content="#0d0d0d" />
+  <link rel="canonical" href="https://inksandicons.com" />
+  <link rel="icon" type="image/png" href="favicon-inks.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;1,9..40,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    /* â”€â”€ TOKENS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+    :root {
+      --sky:         #0ea5e9;
+      --sky-dim:     rgba(14, 165, 233, 0.15);
+      --sky-glow:    rgba(14, 165, 233, 0.06);
+      --mint:        #4ec994;
+      --mint-dim:    rgba(78, 201, 148, 0.15);
+      --bg:          #0d0d0d;
+      --bg-card:     #141414;
+      --bg-hover:    #1a1a1a;
+      --border:      rgba(255,255,255,0.07);
+      --border-hover:rgba(14, 165, 233, 0.4);
+      --text-primary:  #f0ede8;
+      --text-secondary:rgba(240,237,232,0.55);
+      --text-tertiary: rgba(240,237,232,0.3);
+      --display:'Barlow Condensed', sans-serif;
+      --sans:   'DM Sans', sans-serif;
+      --mono:   'JetBrains Mono', monospace;
+      --ease:   cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* â”€â”€ RESET â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+    body {
+      font-family: var(--sans);
+      background: var(--bg);
+      color: var(--text-primary);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      cursor: none;
+    }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+
+    /* â”€â”€ FOCUS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+    :focus-visible {
+      outline: 2px solid var(--sky);
+      outline-offset: 3px;
+      border-radius: 2px;
+    }
+
+    /* â”€â”€ CUSTOM CURSOR â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+    #cursor {
+      width: 10px; height: 10px;
+      background: var(--sky);
+      border-radius: 50%;
+      position: fixed; top: 0; left: 0;
+      pointer-events: none; z-index: 9999;
+      transform: translate(-50%, -50%);
+      transition: transform 0.08s, width 0.25s var(--ease), height 0.25s var(--ease), background 0.25s, border-radius 0.25s;
+      mix-blend-mode: screen;
+    }
+    #cursor-ring {
+      width: 36px; height: 36px;
+      border: 1px solid rgba(14, 165, 233, 0.5);
+      border-radius: 50%;
+      position: fixed; top: 0; left: 0;
+      pointer-events: none; z-index: 9998;
+      transform: translate(-50%, -50%);
+      transition: transform 0.18s var(--ease), width 0.25s var(--ease), height 0.25s var(--ease), opacity 0.25s;
+    }
+    #cursor.on-work {
+      width: 60px; height: 60px;
+      border-radius: 4px;
+      background: transparent;
+      border: 1px solid var(--sky);
+      mix-blend-mode: normal;
+    }
+    #cursor.on-work + #cursor-ring { opacity: 0; }
+
+    /* â”€â”€ NAV â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 24px 0;
+      transition: background 0.4s, padding 0.3s;
+    }
+    nav.scrolled {
+      background: rgba(13,13,13,0.92);
+      backdrop-filter: blur(16px);
+      padding: 16px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo {
+      font-family: var(--display);
+      font-weight: 700;
+      font-size: 20px;
+      letter-spacing: 0.01em;
+      color: var(--text-primary);
+    }
+    .nav-logo span { color: var(--sky); }
+    .nav-right { display: flex; align-items: center; gap: 32px; }
+    .nav-links { display: flex; gap: 28px; list-style: none; }
+    .nav-links a {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-tertiary);
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--sky); }
+    .nav-cta {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--sky);
+      border: 1px solid rgba(14,165,233,0.3);
+      padding: 8px 18px;
+      border-radius: 2px;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .nav-cta:hover { background: var(--sky-dim); border-color: var(--sky); }
+
+    /* â”€â”€ HERO â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 0 0 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 70% 40%, rgba(14,165,233,0.06) 0%, transparent 60%),
+        radial-gradient(ellipse 40% 40% at 20% 70%, rgba(78,201,148,0.04) 0%, transparent 50%);
+    }
+    .hero-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      opacity: 0.4;
+      pointer-events: none;
+    }
+    .hero-lines {
+      position: absolute;
+      inset: 0;
+      background-image: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 3px,
+        rgba(255,255,255,0.012) 3px,
+        rgba(255,255,255,0.012) 4px
+      );
+      pointer-events: none;
+    }
+    .hero-content {
+      position: relative;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 40px;
+      width: 100%;
+    }
+    .hero-eyebrow {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--sky);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .hero-eyebrow::before { content: ''; display: inline-block; width: 32px; height: 1px; background: var(--sky); }
+    .hero-headline {
+      font-family: var(--display);
+      font-weight: 800;
+      font-size: clamp(64px, 10vw, 140px);
+      line-height: 0.88;
+      letter-spacing: -0.01em;
+      color: var(--text-primary);
+      margin-bottom: 40px;
+    }
+    .hero-headline .accent { color: var(--sky); }
+    .hero-headline .accent-mint { color: var(--mint); }
+    .hero-bottom {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+    .hero-desc { font-size: 15px; color: var(--text-secondary); max-width: 440px; line-height: 1.7; }
+    .hero-desc a { color: var(--sky); border-bottom: 1px solid rgba(14,165,233,0.3); transition: border-color 0.2s; }
+    .hero-desc a:hover { border-color: var(--sky); }
+    .hero-meta { display: flex; gap: 32px; flex-shrink: 0; }
+    .hero-meta-item { text-align: right; }
+    .hero-meta-num {
+      font-family: var(--display);
+      font-weight: 700;
+      font-size: 28px;
+      color: var(--text-primary);
+      letter-spacing: -0.03em;
+      line-height: 1;
+    }
+    .hero-meta-num span { color: var(--sky); }
+    .hero-meta-label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-tertiary); margin-top: 4px; }
+    .scroll-hint {
+      position: absolute;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+    .scroll-hint span { font-family: var(--mono); font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-tertiary); }
+    .scroll-arrow {
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, var(--sky), transparent);
+      animation: scrollPulse 2s ease-in-out infinite;
+    }
+    @keyframes scrollPulse {
+      0%, 100% { opacity: 0.3; transform: scaleY(1); }
+      50% { opacity: 1; transform: scaleY(1.1); }
+    }
+
+    /* â”€â”€ FILTER BAR â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+    #filter-bar {
+      position: sticky;
+      top: 57px;
+      z-index: 50;
+      background: rgba(13,13,13,0.92);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+    .filter-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 40px;
+      display: flex;
+      align-items: center;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .filter-inner::-webkit-scrollbar { display: none; }
+    .filter-btn {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-tertiary);
+      padding: 18px 20px;
+      border: none;
+      background: none;
+      cursor: none;
+      white-space: nowrap;
+      transition: color 0.2s;
+      position: relative;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -1px;
+    }
+    .filter-btn::after {
+      content: '';
+      position: absolute;
+      bottom: -1px; left: 20px; right: 20px;
+      height: 2px;
+      background: var(--sky);
+      transform: scaleX(0);
+      transition: transform 0.2s var(--ease);
+    }
+    .filter-btn:hover { color: var(--text-primary); }
+    .filter-btn.active { color: var(--sky); }
+    .filter-btn.active::after { transform: scaleX(1); }
+    .filter-count { font-size: 9px; color: var(--text-tertiary); margin-left: 5px; vertical-align: super; }
+
+    /* â”€â”€ GALLERY â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+    #gallery { max-width: 1280px; margin: 0 auto; padding: 60px 40px 120px; }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 3px;
+    }
+    .gallery-item {
+      position: relative;
+      aspect-ratio: 1;
+      overflow: hidden;
+      background: var(--bg-card);
+      cursor: none;
+    }
+    .gallery-item.wide { grid-column: span 2; aspect-ratio: 2/1; }
+    .gallery-item.tall { grid-row: span 2; aspect-ratio: 1/2; }
+    .gallery-item img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s var(--ease), filter 0.4s;
+      filter: saturate(0.85);
+    }
+    .gallery-item:hover img { transform: scale(1.04); filter: saturate(1.1); }
+    .gallery-ph {
+      width: 100%; height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .gallery-item:hover .gallery-ph { border-color: rgba(14,165,233,0.2); background: var(--bg-hover); }
+    .ph-icon { width: 28px; height: 28px; opacity: 0.2; }
+    .ph-name { font-family: var(--mono); font-size: 10px; letter-spacing: 0.06em; color: var(--text-tertiary); text-align: center; padding: 0 12px; }
+    .gallery-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, transparent 50%);
+      opacity: 0;
+      transition: opacity 0.3s;
+      display: flex;
+      align-items: flex-end;
+      padding: 20px;
+    }
+    .gallery-item:hover .gallery-overlay { opacity: 1; }
+    .overlay-cat { font-family: var(--mono); font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--sky); margin-bottom: 4px; }
+    .overlay-title { font-family: var(--display); font-weight: 600; font-size: 14px; color: #fff; letter-spacing: -0.01em; }
+    .gallery-item.hidden { display: none; }
+
+    /* â”€â”€ LIGHTBOX â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+    #lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 200;
+      background: rgba(0,0,0,0.95);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s;
+    }
+    #lightbox.open { opacity: 1; pointer-events: all; }
+    .lightbox-img { max-width: 88vw; max-height: 88vh; object-fit: contain; border-radius: 2px; }
+    .lightbox-close {
+      position: absolute;
+      top: 28px; right: 32px;
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-tertiary);
+      cursor: none;
+      transition: color 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .lightbox-close:hover { color: var(--sky); }
+    .lightbox-meta { position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%); text-align: center; }
+    .lightbox-cat { font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--sky); margin-bottom: 4px; }
+    .lightbox-title { font-family: var(--display); font-weight: 600; font-size: 16px; color: var(--text-primary); }
+
+    /* â”€â”€ ABOUT STRIP â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+    #about { border-top: 1px solid var(--border); padding: 80px 0; }
+    .about-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 40px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .about-photo-wrap { position: relative; width: 200px; flex-shrink: 0; margin-bottom: 32px; }
+    .about-photo { width: 200px; height: 200px; border-radius: 3px; object-fit: cover; display: block; filter: grayscale(20%); transition: filter 0.3s; }
+    .about-photo:hover { filter: grayscale(0%); }
+    .about-label {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-tertiary);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .about-label::before { content: ''; width: 24px; height: 1px; background: var(--mint); display: inline-block; }
+    .about-headline {
+      font-family: var(--display);
+      font-weight: 800;
+      font-size: clamp(32px, 4vw, 56px);
+      letter-spacing: -0.01em;
+      line-height: 1.0;
+      color: var(--text-primary);
+      margin-bottom: 24px;
+    }
+    .about-headline span { color: var(--mint); }
+    .about-body { font-size: 15px; color: var(--text-secondary); line-height: 1.75; }
+    .about-body p + p { margin-top: 16px; }
+    .about-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 32px;
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--sky);
+      border-bottom: 1px solid rgba(14,165,233,0.3);
+      padding-bottom: 4px;
+      transition: border-color 0.2s, gap 0.2s;
+    }
+    .about-cta:hover { border-color: var(--sky); gap: 14px; }
+    .about-right { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
+    .about-stat { background: var(--bg-card); border: 1px solid var(--border); padding: 28px 24px; transition: border-color 0.2s; }
+    .about-stat:hover { border-color: rgba(14,165,233,0.2); }
+    .about-stat-num { font-family: var(--display); font-weight: 700; font-size: 36px; letter-spacing: -0.04em; line-height: 1; margin-bottom: 6px; }
+    .about-stat-num span { color: var(--sky); }
+    .about-stat-label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-tertiary); }
+
+    /* â”€â”€ FOOTER â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+    footer { border-top: 1px solid var(--border); padding: 32px 0; }
+    .footer-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .footer-logo { font-family: var(--display); font-weight: 700; font-size: 15px; color: var(--text-tertiary); letter-spacing: -0.02em; }
+    .footer-logo span { color: var(--sky); }
+    .footer-links { display: flex; gap: 24px; }
+    .footer-links a { font-family: var(--mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-tertiary); transition: color 0.2s; }
+    .footer-links a:hover { color: var(--sky); }
+    .footer-meta { font-family: var(--mono); font-size: 10px; color: var(--text-tertiary); letter-spacing: 0.04em; }
+    .footer-meta span { color: var(--sky); }
+
+    /* â”€â”€ DRAGGABLE STICKER EASTER EGG â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+    #sticker {
+      position: fixed;
+      bottom: 40px; right: 40px;
+      width: 72px; height: 72px;
+      background: var(--sky);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--mono);
+      font-size: 9px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #fff;
+      text-align: center;
+      line-height: 1.3;
+      cursor: none;
+      z-index: 150;
+      user-select: none;
+      box-shadow: 0 8px 32px rgba(14,165,233,0.3);
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    #sticker:hover { box-shadow: 0 12px 40px rgba(14,165,233,0.5); transform: scale(1.05); }
+    #sticker.dragging { transform: scale(1.12) rotate(5deg); }
+
+    /* â”€â”€ SCROLL REVEAL â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.7s var(--ease), transform 0.7s var(--ease); }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    /* â”€â”€ MOBILE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+    @media (max-width: 900px) {
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+      .gallery-item.wide { grid-column: span 2; }
+      .gallery-item.tall { grid-row: span 1; aspect-ratio: 1; }
+      .about-inner { grid-template-columns: 1fr; gap: 48px; }
+      .nav-links { display: none; }
+    }
+    @media (max-width: 600px) {
+      .nav-inner { padding: 0 20px; }
+      .filter-inner { padding: 0 20px; }
+      #gallery { padding: 40px 20px 80px; }
+      .hero-content { padding: 0 20px; }
+      .about-inner { padding: 0 20px; }
+      .footer-inner { padding: 0 20px; flex-direction: column; text-align: center; }
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 2px; }
+      .hero-headline { font-size: clamp(44px, 12vw, 80px); }
+      #sticker { width: 56px; height: 56px; font-size: 8px; bottom: 24px; right: 24px; }
+    }
+    @media (max-width: 480px) {
+      .hero-headline { font-size: clamp(40px, 10vw, 60px); }
+      .hero-bottom { flex-direction: column; align-items: flex-start; gap: 24px; }
+      .hero-meta { gap: 20px; }
+      .hero-meta-item { text-align: left; }
+      .about-stat { padding: 20px 16px; }
+      .about-stat-num { font-size: 28px; }
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+      .gallery-item.wide { grid-column: span 2; }
+      .gallery-item.tall { grid-row: span 1; aspect-ratio: 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- CURSOR -->
+  <div id="cursor"></div>
+  <div id="cursor-ring"></div>
+
+  <!-- NAV -->
+  <nav id="mainNav">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo">Inks<span>&</span>Icons</a>
+      <div class="nav-right">
+        <ul class="nav-links">
+          <li><a href="#gallery">Work</a></li>
+          <li><a href="#about">About</a></li>
+        </ul>
+        <a href="https://ianschumacher.com" class="nav-cta" target="_blank">Full Story â†’</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-lines"></div>
+    <div class="hero-content">
+      <div class="hero-eyebrow">Ian Schumacher â€” Senior Designer & Brand Strategist</div>
+      <h1 class="hero-headline">
+        Inks<span class="accent">.</span><br>
+        Icons<span class="accent-mint">.</span><br>
+        <span style="opacity:0.25">Ideas.</span>
+      </h1>
+      <div class="hero-bottom">
+        <p class="hero-desc">
+          12+ years of brand systems, print production, and design that works at scale. Currently managing <strong style="color:var(--text-primary);font-weight:400;">7 brands</strong> and <strong style="color:var(--text-primary);font-weight:400;">475+ franchise locations</strong> at FullSpeed Automotive.<br><br>
+          For case studies and the full story: <a href="https://ianschumacher.com">ianschumacher.com â†’</a>
+        </p>
+        <div class="hero-meta">
+          <div class="hero-meta-item">
+            <div class="hero-meta-num">12<span>+</span></div>
+            <div class="hero-meta-label">Years</div>
+          </div>
+          <div class="hero-meta-item">
+            <div class="hero-meta-num">7</div>
+            <div class="hero-meta-label">Brands</div>
+          </div>
+          <div class="hero-meta-item">
+            <div class="hero-meta-num">475<span>+</span></div>
+            <div class="hero-meta-label">Locations</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-hint">
+      <span>Scroll</span>
+      <div class="scroll-arrow"></div>
+    </div>
+  </section>
+
+  <!-- FILTER BAR -->
+  <div id="filter-bar">
+    <div class="filter-inner">
+      <button class=”filter-btn active” data-filter=”all” onclick=”filterGallery('all', this)”>
+        All <span class=”filter-count” id=”count-all”>—</span>
+      </button>
+      <button class=”filter-btn” data-filter=”brand” onclick=”filterGallery('brand', this)”>
+        Brand Identity <span class=”filter-count” id=”count-brand”>—</span>
+      </button>
+      <button class=”filter-btn” data-filter=”digital” onclick=”filterGallery('digital', this)”>
+        Digital <span class=”filter-count” id=”count-digital”>—</span>
+      </button>
+      <button class=”filter-btn” data-filter=”print” onclick=”filterGallery('print', this)”>
+        Print <span class=”filter-count” id=”count-print”>—</span>
+      </button>
+      <button class=”filter-btn” data-filter=”merch” onclick=”filterGallery('merch', this)”>
+        Merch <span class=”filter-count” id=”count-merch”>—</span>
+      </button>
+      <button class=”filter-btn” data-filter=”signage” onclick=”filterGallery('signage', this)”>
+        Signage <span class=”filter-count” id=”count-signage”>—</span>
+      </button>
+      <button class=”filter-btn” data-filter=”packaging” onclick=”filterGallery('packaging', this)”>
+        Packaging <span class=”filter-count” id=”count-packaging”>—</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- GALLERY -->
+  <div id="gallery">
+        <div class="gallery-grid" id="galleryGrid">
+      <div class="gallery-item wide" data-cat="brand" data-title="The Local — Stationary & Brand Kit" onclick="openLightbox(this)">
+        <img src="brand__thelocal_stationarybrandkit_wide.png" alt="The Local — Stationary & Brand Kit" loading="lazy">
+        <div class="gallery-overlay"><div class="gallery-overlay-text">The Local — Stationary & Brand Kit</div></div>
+      </div>
+      <div class="gallery-item" data-cat="brand" data-title="Aspen Ridge — Logo" onclick="openLightbox(this)">
+        <img src="brand_aspenridge_logo.png" alt="Aspen Ridge — Logo" loading="lazy">
+        <div class="gallery-overlay"><div class="gallery-overlay-text">Aspen Ridge — Logo</div></div>
+      </div>
+      <div class="gallery-item wide" data-cat="brand" data-title="Aspen Ridge — Logo" onclick="openLightbox(this)">
+        <img src="brand_aspenridge_logo_wide.png" alt="Aspen Ridge — Logo" loading="lazy">
+        <div class="gallery-overlay"><div class="gallery-overlay-text">Aspen Ridge — Logo</div></div>
+      </div>
+      <div class="gallery-item" data-cat="brand" data-title="Big Horn — Logo" onclick="openLightbox(this)">
+        <img src="brand_bighorn_logo.png" alt="Big Horn — Logo" loading="lazy">
+        <div class="gallery-overlay"><div class="gallery-overlay-text">Big Horn — Logo</div></div>
+      </div>
+      <div class="gallery-item wide" data-cat="brand" data-title="Big Horn — Logo" onclick="openLightbox(this)">
+        <img src="brand_bighorn_logo_wide.png" alt="Big Horn — Logo" loading="lazy">
+        <div class="gallery-overlay"><div class="gallery-overlay-text">Big Horn — Logo</div></div>
+      </div>
+      <div class="gallery-item" data-cat="brand" data-title="Big Sky Candle — Logo" onclick="openLightbox(this)">
+        <img src="brand_bigskycandle_logo.png" alt="Big Sky Candle — Logo" loading="lazy">
+        <div class="gallery-overlay"><div class="gallery-overlay-text">Big Sky Candle — Logo</div></div>
+      </div>
+      <div class="gallery-item wide" data-cat="brand" data-title="Big Sky Candle — Logo" onclick="openLightbox(this)">
+        <img src="brand_bigskycandle_logo_wide.png" alt="Big Sky Candle — Logo" loading="lazy">
+        <div class="gallery-overlay"><div class="gallery-overlay-text">Big Sky Candle — Logo</div></div>
+      </div>
+      <div class="gallery-item" data-cat="brand" data-title="LearningRx — Style Guide" onclick="openLightbox(this)">
+        <img src="brand_learningrx_styleguide.png" alt="LearningRx — Style Guide" loading="lazy">
+        <div class="gallery-overlay"><div class="gallery-overlay-text">LearningRx — Style Guide</div></div>
+      </div>
+      <div class="gallery-item wide" data-cat="brand" data-title="LearningRx — Style Guide" onclick="openLightbox(this)">
+        <img src="brand_learningrx_styleguide_wide.png" alt="LearningRx — Style Guide" loading="lazy">
+        <div class="gallery-overlay"><div class="gallery-overlay-text">LearningRx — Style Guide</div></div>
+      </div>
+      <div class="gallery-item" data-cat="brand" data-title="Simpli — Logo" onclick="openLightbox(this)">
+        <img src="brand_simpli_logo.png" alt="Simpli — Logo" loading="lazy">
+        <div class="gallery-overlay"><div class="gallery-overlay-text">Simpli — Logo</div></div>
+      </div>
+      <div class="gallery-item wide" data-cat="brand" data-title="Simpli — Logo" onclick="openLightbox(this)">
+        <img src="brand_simpli_logo_wide.png" alt="Simpli — Logo" loading="lazy">
+        <div class="gallery-overlay"><div class="gallery-overlay-text">Simpli — Logo</div></div>
+      </div>
+      <div class="gallery-item" data-cat="brand" data-title="Smokehouse — Logo" onclick="openLightbox(this)">
+        <img src="brand_smokehouse_logo.png" alt="Smokehouse — Logo" loading="lazy">
+        <div class="gallery-overlay"><div class="gallery-overlay-text">Smokehouse — Logo</div></div>
+      </div>
+      <div class="gallery-item wide" data-cat="brand" data-title="Smokehouse — Logo" onclick="openLightbox(this)">
+        <img src="brand_smokehouse_logo_wide.png" alt="Smokehouse — Logo" loading="lazy">
+        <div class="gallery-overlay"><div class="gallery-overlay-text">Smokehouse — Logo</div></div>
+      </div>
+      <div class="gallery-item" data-cat="brand" data-title="The Local — Logo" onclick="openLightbox(this)">
+        <img src="brand_thelocal_logo.png" alt="The Local — Logo" loading="lazy">
+        <div class="gallery-overlay"><div class="gallery-overlay-text">The Local — Logo</div></div>
+      </div>
+      <div class="gallery-item wide" data-cat="brand" data-title="The Local — Logo" onclick="openLightbox(this)">
+        <img src="brand_thelocal_logo_wide.png" alt="The Local — Logo" loading="lazy">
+        <div class="gallery-overlay"><div class="gallery-overlay-text">The Local — Logo</div></div>
+      </div>
+      <div class="gallery-item" data-cat="brand" data-title="The Local — Stationary & Brand Kit" onclick="openLightbox(this)">
+        <img src="brand_thelocal_stationarybrandkit.png" alt="The Local — Stationary & Brand Kit" loading="lazy">
+        <div class="gallery-overlay"><div class="gallery-overlay-text">The Local — Stationary & Brand Kit</div></div>
+      </div>
+      <div class="gallery-item" data-cat="digital" data-title="Big Sky Candle — Website" onclick="openLightbox(this)">
+        <img src="digital_bigskycandle_website.png" alt="Big Sky Candle — Website" loading="lazy">
+        <div class="gallery-overlay"><div class="gallery-overlay-text">Big Sky Candle — Website</div></div>
+      </div>
+      <div class="gallery-item wide" data-cat="digital" data-title="Big Sky Candle — Website" onclick="openLightbox(this)">
+        <img src="digital_bigskycandle_website_wide.png" alt="Big Sky Candle — Website" loading="lazy">
+        <div class="gallery-overlay"><div class="gallery-overlay-text">Big Sky Candle — Website</div></div>
+      </div>
+      <div class="gallery-item" data-cat="digital" data-title="Grease Monkey — Social Media Ad" onclick="openLightbox(this)">
+        <img src="digital_gm_socialmediaad.png" alt="Grease Monkey — Social Media Ad" loading="lazy">
+        <div class="gallery-overlay"><div class="gallery-overlay-text">Grease Monkey — Social Media Ad</div></div>
+      </div>
+      <div class="gallery-item wide" data-cat="digital" data-title="Grease Monkey — Social Media Ad" onclick="openLightbox(this)">
+        <img src="digital_gm_socialmediaad_wide.png" alt="Grease Monkey — Social Media Ad" loading="lazy">
+        <div class="gallery-overlay"><div class="gallery-overlay-text">Grease Monkey — Social Media Ad</div></div>
+      </div>
+      <div class="gallery-item wide" data-cat="digital" data-title="LearningRx — Digital Ad" onclick="openLightbox(this)">
+        <img src="digital_learningrx_digitalad_wide.png" alt="LearningRx — Digital Ad" loading="lazy">
+        <div class="gallery-overlay"><div class="gallery-overlay-text">LearningRx — Digital Ad</div></div>
+      </div>
+      <div class="gallery-item" data-cat="digital" data-title="SpeeDee — Banner Ad" onclick="openLightbox(this)">
+        <img src="digital_sd_bannerad.png" alt="SpeeDee — Banner Ad" loading="lazy">
+        <div class="gallery-overlay"><div class="gallery-overlay-text">SpeeDee — Banner Ad</div></div>
+      </div>
+      <div class="gallery-item wide" data-cat="digital" data-title="SpeeDee — Banner Ad" onclick="openLightbox(this)">
+        <img src="digital_sd_bannerad_wide.png" alt="SpeeDee — Banner Ad" loading="lazy">
+        <div class="gallery-overlay"><div class="gallery-overlay-text">SpeeDee — Banner Ad</div></div>
+      </div>
+      <div class="gallery-item" data-cat="digital" data-title="SpeeDee — Website" onclick="openLightbox(this)">
+        <img src="digital_sd_website.png" alt="SpeeDee — Website" loading="lazy">
+        <div class="gallery-overlay"><div class="gallery-overlay-text">SpeeDee — Website</div></div>
+      </div>
+      <div class="gallery-item wide" data-cat="digital" data-title="SpeeDee — Website" onclick="openLightbox(this)">
+        <img src="digital_sd_website_wide.png" alt="SpeeDee — Website" loading="lazy">
+        <div class="gallery-overlay"><div class="gallery-overlay-text">SpeeDee — Website</div></div>
+      </div>
+      <div class="gallery-item" data-cat="digital" data-title="Smokehouse — Social Homepage" onclick="openLightbox(this)">
+        <img src="digital_smokehouse_socialhomepage.png" alt="Smokehouse — Social Homepage" loading="lazy">
+        <div class="gallery-overlay"><div class="gallery-overlay-text">Smokehouse — Social Homepage</div></div>
+      </div>
+      <div class="gallery-item wide" data-cat="digital" data-title="Smokehouse — Website" onclick="openLightbox(this)">
+        <img src="digital_smokehouse_website_wide.png" alt="Smokehouse — Website" loading="lazy">
+        <div class="gallery-overlay"><div class="gallery-overlay-text">Smokehouse — Website</div></div>
+      </div>
+      <div class="gallery-item wide" data-cat="merch" data-title="Bridger Bowl — Apparel" onclick="openLightbox(this)">
+        <img src="merch__bridgerbowl_apparel_wide.png" alt="Bridger Bowl — Apparel" loading="lazy">
+        <div class="gallery-overlay"><div class="gallery-overlay-text">Bridger Bowl — Apparel</div></div>
+      </div>
+      <div class="gallery-item wide" data-cat="merch" data-title="Pour House — Apparel" onclick="openLightbox(this)">
+        <img src="merch__pourhouse_apparel_wide.png" alt="Pour House — Apparel" loading="lazy">
+        <div class="gallery-overlay"><div class="gallery-overlay-text">Pour House — Apparel</div></div>
+      </div>
+      <div class="gallery-item" data-cat="merch" data-title="Bridger Bowl — Apparel" onclick="openLightbox(this)">
+        <img src="merch_bridgerbowl_apparel.png" alt="Bridger Bowl — Apparel" loading="lazy">
+        <div class="gallery-overlay"><div class="gallery-overlay-text">Bridger Bowl — Apparel</div></div>
+      </div>
+      <div class="gallery-item wide" data-cat="merch" data-title="Midtown — Coaster" onclick="openLightbox(this)">
+        <img src="merch_midtown_coaster_wide.png" alt="Midtown — Coaster" loading="lazy">
+        <div class="gallery-overlay"><div class="gallery-overlay-text">Midtown — Coaster</div></div>
+      </div>
+      <div class="gallery-item" data-cat="merch" data-title="Midtown — Menu" onclick="openLightbox(this)">
+        <img src="merch_midtown_menu.png" alt="Midtown — Menu" loading="lazy">
+        <div class="gallery-overlay"><div class="gallery-overlay-text">Midtown — Menu</div></div>
+      </div>
+      <div class="gallery-item wide" data-cat="merch" data-title="Midtown — Menu" onclick="openLightbox(this)">
+        <img src="merch_midtown_menu_wide.png" alt="Midtown — Menu" loading="lazy">
+        <div class="gallery-overlay"><div class="gallery-overlay-text">Midtown — Menu</div></div>
+      </div>
+      <div class="gallery-item" data-cat="merch" data-title="Multi-Brand — Apparel" onclick="openLightbox(this)">
+        <img src="merch_multibrand_apparel.png" alt="Multi-Brand — Apparel" loading="lazy">
+        <div class="gallery-overlay"><div class="gallery-overlay-text">Multi-Brand — Apparel</div></div>
+      </div>
+      <div class="gallery-item wide" data-cat="merch" data-title="Multi-Brand — Apparel" onclick="openLightbox(this)">
+        <img src="merch_multibrand_apparel_wide.png" alt="Multi-Brand — Apparel" loading="lazy">
+        <div class="gallery-overlay"><div class="gallery-overlay-text">Multi-Brand — Apparel</div></div>
+      </div>
+      <div class="gallery-item" data-cat="merch" data-title="Pour House — Apparel" onclick="openLightbox(this)">
+        <img src="merch_pourhouse_apparel.png" alt="Pour House — Apparel" loading="lazy">
+        <div class="gallery-overlay"><div class="gallery-overlay-text">Pour House — Apparel</div></div>
+      </div>
+      <div class="gallery-item" data-cat="merch" data-title="Smokehouse — Apparel" onclick="openLightbox(this)">
+        <img src="merch_smokehouse_apparel.png" alt="Smokehouse — Apparel" loading="lazy">
+        <div class="gallery-overlay"><div class="gallery-overlay-text">Smokehouse — Apparel</div></div>
+      </div>
+      <div class="gallery-item wide" data-cat="merch" data-title="Smokehouse — Apparel" onclick="openLightbox(this)">
+        <img src="merch_smokehouse_apparel_wide.png" alt="Smokehouse — Apparel" loading="lazy">
+        <div class="gallery-overlay"><div class="gallery-overlay-text">Smokehouse — Apparel</div></div>
+      </div>
+      <div class="gallery-item wide" data-cat="merch" data-title="Smokehouse — Stickers" onclick="openLightbox(this)">
+        <img src="merch_smokehouse_stickers_wide.png" alt="Smokehouse — Stickers" loading="lazy">
+        <div class="gallery-overlay"><div class="gallery-overlay-text">Smokehouse — Stickers</div></div>
+      </div>
+      <div class="gallery-item" data-cat="merch" data-title="The Local — Pint Glass" onclick="openLightbox(this)">
+        <img src="merch_thelocal_pint.png" alt="The Local — Pint Glass" loading="lazy">
+        <div class="gallery-overlay"><div class="gallery-overlay-text">The Local — Pint Glass</div></div>
+      </div>
+      <div class="gallery-item wide" data-cat="packaging" data-title="Big Sky Candle — Label" onclick="openLightbox(this)">
+        <img src="packaging_bigskycandle_label_wide.png" alt="Big Sky Candle — Label" loading="lazy">
+        <div class="gallery-overlay"><div class="gallery-overlay-text">Big Sky Candle — Label</div></div>
+      </div>
+      <div class="gallery-item wide" data-cat="packaging" data-title="Big Sky Candle — Label" onclick="openLightbox(this)">
+        <img src="packaging_bigskycandle_label2_wide.png" alt="Big Sky Candle — Label" loading="lazy">
+        <div class="gallery-overlay"><div class="gallery-overlay-text">Big Sky Candle — Label</div></div>
+      </div>
+      <div class="gallery-item wide" data-cat="packaging" data-title="Big Sky Candle — Package Design" onclick="openLightbox(this)">
+        <img src="packaging_bigskycandle_package_wide.png" alt="Big Sky Candle — Package Design" loading="lazy">
+        <div class="gallery-overlay"><div class="gallery-overlay-text">Big Sky Candle — Package Design</div></div>
+      </div>
+      <div class="gallery-item wide" data-cat="packaging" data-title="Grease Monkey — Event Gift Packaging" onclick="openLightbox(this)">
+        <img src="packaging_gm_eventgift_wide.png" alt="Grease Monkey — Event Gift Packaging" loading="lazy">
+        <div class="gallery-overlay"><div class="gallery-overlay-text">Grease Monkey — Event Gift Packaging</div></div>
+      </div>
+      <div class="gallery-item wide" data-cat="packaging" data-title="Grease Monkey — Franchise Welcome Kit" onclick="openLightbox(this)">
+        <img src="packaging_gm_welcomekit_wide.png" alt="Grease Monkey — Franchise Welcome Kit" loading="lazy">
+        <div class="gallery-overlay"><div class="gallery-overlay-text">Grease Monkey — Franchise Welcome Kit</div></div>
+      </div>
+      <div class="gallery-item" data-cat="packaging" data-title="Simpli — Package Design" onclick="openLightbox(this)">
+        <img src="packaging_simpli_package2.png" alt="Simpli — Package Design" loading="lazy">
+        <div class="gallery-overlay"><div class="gallery-overlay-text">Simpli — Package Design</div></div>
+      </div>
+      <div class="gallery-item wide" data-cat="packaging" data-title="Simpli — Package Design" onclick="openLightbox(this)">
+        <img src="packaging_simpli_package2_wide.png" alt="Simpli — Package Design" loading="lazy">
+        <div class="gallery-overlay"><div class="gallery-overlay-text">Simpli — Package Design</div></div>
+      </div>
+      <div class="gallery-item wide" data-cat="packaging" data-title="Simpli — Pouch Design" onclick="openLightbox(this)">
+        <img src="packaging_simpli_pouchdesign_wide.png" alt="Simpli — Pouch Design" loading="lazy">
+        <div class="gallery-overlay"><div class="gallery-overlay-text">Simpli — Pouch Design</div></div>
+      </div>
+      <div class="gallery-item wide" data-cat="packaging" data-title="Smokehouse — Pork Label" onclick="openLightbox(this)">
+        <img src="packaging_smokehouse__porklabel_wide.png" alt="Smokehouse — Pork Label" loading="lazy">
+        <div class="gallery-overlay"><div class="gallery-overlay-text">Smokehouse — Pork Label</div></div>
+      </div>
+      <div class="gallery-item" data-cat="print" data-title="Grease Monkey — Fast-Food Flyer" onclick="openLightbox(this)">
+        <img src="print_gm_fastfoodflyer.png" alt="Grease Monkey — Fast-Food Flyer" loading="lazy">
+        <div class="gallery-overlay"><div class="gallery-overlay-text">Grease Monkey — Fast-Food Flyer</div></div>
+      </div>
+      <div class="gallery-item" data-cat="print" data-title="Grease Monkey — Direct Mailer" onclick="openLightbox(this)">
+        <img src="print_gm_mailer.png" alt="Grease Monkey — Direct Mailer" loading="lazy">
+        <div class="gallery-overlay"><div class="gallery-overlay-text">Grease Monkey — Direct Mailer</div></div>
+      </div>
+      <div class="gallery-item" data-cat="print" data-title="LearningRx — Direct Mailer" onclick="openLightbox(this)">
+        <img src="print_learningrx_mailer.png" alt="LearningRx — Direct Mailer" loading="lazy">
+        <div class="gallery-overlay"><div class="gallery-overlay-text">LearningRx — Direct Mailer</div></div>
+      </div>
+      <div class="gallery-item wide" data-cat="print" data-title="LearningRx — Direct Mailer" onclick="openLightbox(this)">
+        <img src="print_learningrx_mailer_wide.png" alt="LearningRx — Direct Mailer" loading="lazy">
+        <div class="gallery-overlay"><div class="gallery-overlay-text">LearningRx — Direct Mailer</div></div>
+      </div>
+      <div class="gallery-item" data-cat="print" data-title="Midtown — Magazine Ad" onclick="openLightbox(this)">
+        <img src="print_midtown_magazinead.png" alt="Midtown — Magazine Ad" loading="lazy">
+        <div class="gallery-overlay"><div class="gallery-overlay-text">Midtown — Magazine Ad</div></div>
+      </div>
+      <div class="gallery-item wide" data-cat="print" data-title="Midtown — Magazine Ad" onclick="openLightbox(this)">
+        <img src="print_midtown_magazinead_wide.png" alt="Midtown — Magazine Ad" loading="lazy">
+        <div class="gallery-overlay"><div class="gallery-overlay-text">Midtown — Magazine Ad</div></div>
+      </div>
+      <div class="gallery-item" data-cat="print" data-title="Smokehouse — Magazine Ad" onclick="openLightbox(this)">
+        <img src="print_smokehouse_magazinead.png" alt="Smokehouse — Magazine Ad" loading="lazy">
+        <div class="gallery-overlay"><div class="gallery-overlay-text">Smokehouse — Magazine Ad</div></div>
+      </div>
+      <div class="gallery-item wide" data-cat="signage" data-title="Grease Monkey — Digital Event Signage" onclick="openLightbox(this)">
+        <img src="signage_gm_digitaleventsignage_wide.png" alt="Grease Monkey — Digital Event Signage" loading="lazy">
+        <div class="gallery-overlay"><div class="gallery-overlay-text">Grease Monkey — Digital Event Signage</div></div>
+      </div>
+      <div class="gallery-item wide" data-cat="signage" data-title="Grease Monkey — Digital Signage" onclick="openLightbox(this)">
+        <img src="signage_gm_digitalsignagestage_wide.png" alt="Grease Monkey — Digital Signage" loading="lazy">
+        <div class="gallery-overlay"><div class="gallery-overlay-text">Grease Monkey — Digital Signage</div></div>
+      </div>
+      <div class="gallery-item" data-cat="signage" data-title="Grease Monkey — Digital Signage" onclick="openLightbox(this)">
+        <img src="signage_gm_digitalsignagestage2.png" alt="Grease Monkey — Digital Signage" loading="lazy">
+        <div class="gallery-overlay"><div class="gallery-overlay-text">Grease Monkey — Digital Signage</div></div>
+      </div>
+      <div class="gallery-item" data-cat="signage" data-title="Grease Monkey — Display Booth" onclick="openLightbox(this)">
+        <img src="signage_gm_displaybooth.png" alt="Grease Monkey — Display Booth" loading="lazy">
+        <div class="gallery-overlay"><div class="gallery-overlay-text">Grease Monkey — Display Booth</div></div>
+      </div>
+      <div class="gallery-item wide" data-cat="signage" data-title="Grease Monkey — Display Booth" onclick="openLightbox(this)">
+        <img src="signage_gm_displaybooth_wide.png" alt="Grease Monkey — Display Booth" loading="lazy">
+        <div class="gallery-overlay"><div class="gallery-overlay-text">Grease Monkey — Display Booth</div></div>
+      </div>
+      <div class="gallery-item" data-cat="signage" data-title="Grease Monkey — Event Signage" onclick="openLightbox(this)">
+        <img src="signage_gm_eventsignage2.png" alt="Grease Monkey — Event Signage" loading="lazy">
+        <div class="gallery-overlay"><div class="gallery-overlay-text">Grease Monkey — Event Signage</div></div>
+      </div>
+      <div class="gallery-item wide" data-cat="signage" data-title="Grease Monkey — Event Signage" onclick="openLightbox(this)">
+        <img src="signage_gm_eventsignage2_wide.png" alt="Grease Monkey — Event Signage" loading="lazy">
+        <div class="gallery-overlay"><div class="gallery-overlay-text">Grease Monkey — Event Signage</div></div>
+      </div>
+      <div class="gallery-item" data-cat="signage" data-title="Grease Monkey — Event Signage" onclick="openLightbox(this)">
+        <img src="signage_gm_eventsignage3.png" alt="Grease Monkey — Event Signage" loading="lazy">
+        <div class="gallery-overlay"><div class="gallery-overlay-text">Grease Monkey — Event Signage</div></div>
+      </div>
+      <div class="gallery-item wide" data-cat="signage" data-title="Grease Monkey — Event Signage" onclick="openLightbox(this)">
+        <img src="signage_gm_eventsignage3_wide.png" alt="Grease Monkey — Event Signage" loading="lazy">
+        <div class="gallery-overlay"><div class="gallery-overlay-text">Grease Monkey — Event Signage</div></div>
+      </div>
+      <div class="gallery-item" data-cat="signage" data-title="The Local — Rotating Menu Display" onclick="openLightbox(this)">
+        <img src="signage_thelocal_rotatingmenu.png" alt="The Local — Rotating Menu Display" loading="lazy">
+        <div class="gallery-overlay"><div class="gallery-overlay-text">The Local — Rotating Menu Display</div></div>
+      </div>
+      <div class="gallery-item wide" data-cat="signage" data-title="The Local — Rotating Menu Display" onclick="openLightbox(this)">
+        <img src="signage_thelocal_rotatingmenu_wide.png" alt="The Local — Rotating Menu Display" loading="lazy">
+        <div class="gallery-overlay"><div class="gallery-overlay-text">The Local — Rotating Menu Display</div></div>
+      </div>
+      <!-- Add more gallery items here following the same pattern -->
+    </div>
+      </div>
+
+      <!-- Add more gallery items here following the same pattern -->
+
+    </div>
+  </div>
+
+  <!-- LIGHTBOX -->
+  <div id="lightbox" onclick="closeLightbox()">
+    <span class="lightbox-close" onclick="closeLightbox()">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      Close
+    </span>
+    <img class="lightbox-img" id="lightboxImg" src="" alt="" />
+    <div class="lightbox-meta">
+      <div class="lightbox-cat" id="lightboxCat"></div>
+      <div class="lightbox-title" id="lightboxTitle"></div>
+    </div>
+  </div>
+
+  <!-- ABOUT STRIP -->
+  <section id="about">
+    <div class="about-inner reveal">
+      <div class="about-left">
+        <div class="about-photo-wrap">
+          <img class="about-photo" src="ian-aviators.jpg" alt="Ian Schumacher" loading="lazy" />
+        </div>
+        <div class="about-label">About the work</div>
+        <h2 class="about-headline">Print shop roots.<br><span>Brand system</span> thinking.</h2>
+        <div class="about-body">
+          <p>I'm Ian Schumacher â€” senior graphic designer and brand strategist based in Denver, CO. Twelve years of work spanning brand identity, print production, screen printing, digital campaigns, environmental design, and apparel.</p>
+          <p>Currently the sole creative for 7 brands and 475+ franchise locations at FullSpeed Automotive. Before that, I founded Printability LLC â€” a full-service print and design studio in Bozeman, MT.</p>
+        </div>
+        <a href="https://ianschumacher.com" class="about-cta" target="_blank">
+          Full case studies & process â†’
+        </a>
+      </div>
+      <div class="about-right">
+        <div class="about-stat">
+          <div class="about-stat-num">12<span>+</span></div>
+          <div class="about-stat-label">Years experience</div>
+        </div>
+        <div class="about-stat">
+          <div class="about-stat-num">7</div>
+          <div class="about-stat-label">Brands managed</div>
+        </div>
+        <div class="about-stat">
+          <div class="about-stat-num">475<span>+</span></div>
+          <div class="about-stat-label">Locations</div>
+        </div>
+        <div class="about-stat">
+          <div class="about-stat-num" style="color:var(--mint);">153<span style="color:var(--mint);">%</span></div>
+          <div class="about-stat-label">CTR lift YoY</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <span class="footer-logo">Inks<span>&</span>Icons</span>
+      <div class="footer-links">
+        <a href="https://ianschumacher.com" target="_blank">ianschumacher.com</a>
+        <a href="mailto:ian@inksandicons.com">Contact</a>
+        <a href="https://linkedin.com/in/ian-schumacher-013bb132" target="_blank">LinkedIn</a>
+      </div>
+      <div class="footer-meta">
+        v1.0 Â· 2026 Â·
+        <span>#0ea5e9</span> Â·
+        <span style="color:var(--mint);">#4ec994</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- DRAGGABLE STICKER EASTER EGG -->
+  <div id="sticker" title="Try dragging me">SAMPLE</div>
+
+  <script>
+    // â”€â”€ CURSOR â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+    const cursor = document.getElementById('cursor');
+    const ring   = document.getElementById('cursor-ring');
+    let mx = 0, my = 0, rx = 0, ry = 0;
+
+    document.addEventListener('mousemove', e => {
+      mx = e.clientX; my = e.clientY;
+      cursor.style.left = mx + 'px';
+      cursor.style.top  = my + 'px';
+    });
+
+    function animateRing() {
+      rx += (mx - rx) * 0.12;
+      ry += (my - ry) * 0.12;
+      ring.style.left = rx + 'px';
+      ring.style.top  = ry + 'px';
+      requestAnimationFrame(animateRing);
+    }
+    animateRing();
+
+    document.querySelectorAll('.gallery-item').forEach(el => {
+      el.addEventListener('mouseenter', () => cursor.classList.add('on-work'));
+      el.addEventListener('mouseleave', () => cursor.classList.remove('on-work'));
+    });
+
+    // â”€â”€ NAV SCROLL â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+    window.addEventListener('scroll', () => {
+      document.getElementById('mainNav').classList.toggle('scrolled', window.scrollY > 60);
+    });
+
+    // â”€â”€ GALLERY KEYBOARD NAV â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+    document.querySelectorAll('.gallery-item').forEach(item => {
+      item.setAttribute('role', 'button');
+      item.setAttribute('tabindex', '0');
+      item.setAttribute('aria-label', item.dataset.title);
+      item.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openLightbox(item); }
+      });
+    });
+
+    // â”€â”€ GALLERY FILTER â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+    function filterGallery(cat, btn) {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      document.querySelectorAll('.gallery-item').forEach(item => {
+        if (cat === 'all' || item.dataset.cat === cat) {
+          item.classList.remove('hidden');
+        } else {
+          item.classList.add('hidden');
+        }
+      });
+    }
+
+    function updateCounts() {
+      const cats = ['all','logo','print','digital','apparel','env','pkg'];
+      cats.forEach(cat => {
+        const el = document.getElementById('count-' + cat);
+        if (!el) return;
+        const count = cat === 'all'
+          ? document.querySelectorAll('.gallery-item').length
+          : document.querySelectorAll(`.gallery-item[data-cat="${cat}"]`).length;
+        el.textContent = count;
+      });
+    }
+    updateCounts();
+
+    // â”€â”€ LIGHTBOX â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+    function openLightbox(item) {
+      const img   = item.querySelector('img');
+      const lb    = document.getElementById('lightbox');
+      const lbImg = document.getElementById('lightboxImg');
+      document.getElementById('lightboxCat').textContent   = item.dataset.cat.toUpperCase();
+      document.getElementById('lightboxTitle').textContent = item.dataset.title;
+      if (img) {
+        lbImg.src = img.src;
+        lbImg.alt = item.dataset.title;
+        lbImg.style.display = 'block';
+      } else {
+        lbImg.style.display = 'none';
+      }
+      lb.classList.add('open');
+    }
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('open');
+    }
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') closeLightbox();
+    });
+
+    // â”€â”€ SCROLL REVEAL â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          obs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+    // â”€â”€ DRAGGABLE STICKER EASTER EGG â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+    const sticker = document.getElementById('sticker');
+    let isDragging = false, startX, startY, origX, origY;
+
+    sticker.addEventListener('mousedown', e => {
+      isDragging = true;
+      startX = e.clientX; startY = e.clientY;
+      const rect = sticker.getBoundingClientRect();
+      origX = rect.left; origY = rect.top;
+      sticker.classList.add('dragging');
+      sticker.style.right = 'auto';
+      sticker.style.bottom = 'auto';
+    });
+    document.addEventListener('mousemove', e => {
+      if (!isDragging) return;
+      sticker.style.left = (origX + e.clientX - startX) + 'px';
+      sticker.style.top  = (origY + e.clientY - startY) + 'px';
+    });
+    document.addEventListener('mouseup', () => {
+      isDragging = false;
+      sticker.classList.remove('dragging');
+    });
+
+    // â”€â”€ EASTER EGG: CONSOLE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+    console.log('%c\nâ–ˆâ–ˆâ•—â–ˆâ–ˆâ–ˆâ•—  â–ˆâ–ˆâ•—â–ˆâ–ˆâ•—  â–ˆâ–ˆâ•—â–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ•—\nâ–ˆâ–ˆâ•‘â–ˆâ–ˆâ–ˆâ–ˆâ•— â–ˆâ–ˆâ•‘â–ˆâ–ˆâ•‘ â–ˆâ–ˆâ•”â•â–ˆâ–ˆâ•”â•â•â•â•â•\nâ–ˆâ–ˆâ•‘â–ˆâ–ˆâ•”â–ˆâ–ˆâ•—â–ˆâ–ˆâ•‘â–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ•”â• â–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ•—\nâ–ˆâ–ˆâ•‘â–ˆâ–ˆâ•‘â•šâ–ˆâ–ˆâ–ˆâ–ˆâ•‘â–ˆâ–ˆâ•”â•â–ˆâ–ˆâ•— â•šâ•â•â•â•â–ˆâ–ˆâ•‘\nâ–ˆâ–ˆâ•‘â–ˆâ–ˆâ•‘ â•šâ–ˆâ–ˆâ–ˆâ•‘â–ˆâ–ˆâ•‘  â–ˆâ–ˆâ•—â–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ•‘\nâ•šâ•â•â•šâ•â•  â•šâ•â•â•â•šâ•â•  â•šâ•â•â•šâ•â•â•â•â•â•â•\n\nyou found the other press room.\nian@inksandicons.com', 'color: #4ec994; font-family: monospace; font-size: 12px;');
+
+    // â”€â”€ EASTER EGG: HOVER NAME CYCLE (logo) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+    const logo = document.querySelector('.nav-logo');
+    const titles = ['Inks&Icons', 'Print Shop', 'Brand Wrangler', 'Screen Printer', 'Type Nerd'];
+    let titleIdx = 0, titleTimer;
+    logo.addEventListener('mouseenter', () => {
+      titleTimer = setInterval(() => {
+        titleIdx = (titleIdx + 1) % titles.length;
+        const t = titles[titleIdx];
+        const mid = Math.floor(t.length / 2);
+        logo.innerHTML = t.substring(0, mid) + '<span style="color:var(--sky);">' + t[mid] + '</span>' + t.substring(mid + 1);
+      }, 500);
+    });
+    logo.addEventListener('mouseleave', () => {
+      clearInterval(titleTimer);
+      logo.innerHTML = 'Inks<span>&</span>Icons';
+    });
+  </script>
+
+</body>
+</html>
+
+
