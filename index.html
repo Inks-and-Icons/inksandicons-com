@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Inks & Icons â€” Ian Schumacher, Designer</title>
-  <meta name="description" content="The work of Ian Schumacher â€” senior graphic designer and brand strategist. 12+ years across brand identity, print, digital, apparel, and environmental design." />
-  <meta property="og:title" content="Inks & Icons â€” Ian Schumacher" />
+  <title>Inks & Icons — Ian Schumacher, Designer</title>
+  <meta name="description" content="The work of Ian Schumacher — senior graphic designer and brand strategist. 12+ years across brand identity, print, digital, apparel, and environmental design." />
+  <meta property="og:title" content="Inks & Icons — Ian Schumacher" />
   <meta property="og:description" content="Senior designer. 12+ years. 7 brands. 475+ locations. The work." />
   <meta property="og:image" content="og-image-inks.jpg" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://inksandicons.com" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Inks & Icons â€” Ian Schumacher" />
+  <meta name="twitter:title" content="Inks & Icons — Ian Schumacher" />
   <meta name="twitter:description" content="Senior designer. 12+ years. 7 brands. 475+ locations. The work." />
   <meta name="twitter:image" content="og-image-inks.jpg" />
   <meta name="theme-color" content="#0d0d0d" />
@@ -358,6 +358,30 @@
     .overlay-title { font-family: var(--display); font-weight: 600; font-size: 14px; color: #fff; letter-spacing: -0.01em; }
     .gallery-item.hidden { display: none; }
 
+    /* -- Filter animation ------------------------------------------------- */
+    .gallery-item { transition: opacity 0.25s, transform 0.25s; }
+    .gallery-item.filtering-out { opacity: 0; transform: scale(0.94); pointer-events: none; }
+    @keyframes fadeInItem {
+      from { opacity: 0; transform: scale(0.96); }
+      to   { opacity: 1; transform: scale(1); }
+    }
+    .gallery-item.filtering-in { animation: fadeInItem 0.3s ease forwards; }
+
+    /* -- Lightbox nav ------------------------------------------------------ */
+    .lb-nav {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12);
+      color: #fff; width: 48px; height: 48px; border-radius: 50%; font-size: 22px;
+      cursor: pointer; display: flex; align-items: center; justify-content: center;
+      transition: background 0.2s, opacity 0.2s; z-index: 201;
+      backdrop-filter: blur(8px); line-height: 1; padding-bottom: 2px;
+    }
+    .lb-nav:hover { background: rgba(255,255,255,0.14); }
+    .lb-nav.disabled { opacity: 0.2; pointer-events: none; }
+    #lb-prev { left: 24px; }
+    #lb-next { right: 24px; }
+    .lb-counter { font-family: var(--mono); font-size: 11px; color: rgba(255,255,255,0.35); margin-top: 6px; letter-spacing: 0.1em; }
+
     /* â”€â”€ LIGHTBOX â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
     #lightbox {
       position: fixed;
@@ -549,7 +573,7 @@
           <li><a href="#gallery">Work</a></li>
           <li><a href="#about">About</a></li>
         </ul>
-        <a href="https://ianschumacher.com" class="nav-cta" target="_blank">Full Story â†’</a>
+        <a href="https://ianschumacher.com" class="nav-cta" target="_blank">Full Story →</a>
       </div>
     </div>
   </nav>
@@ -559,7 +583,7 @@
     <div class="hero-bg"></div>
     <div class="hero-lines"></div>
     <div class="hero-content">
-      <div class="hero-eyebrow">Ian Schumacher â€” Senior Designer & Brand Strategist</div>
+      <div class="hero-eyebrow">Ian Schumacher — Senior Designer & Brand Strategist</div>
       <h1 class="hero-headline">
         Inks<span class="accent">.</span><br>
         Icons<span class="accent-mint">.</span><br>
@@ -568,7 +592,7 @@
       <div class="hero-bottom">
         <p class="hero-desc">
           12+ years of brand systems, print production, and design that works at scale. Currently managing <strong style="color:var(--text-primary);font-weight:400;">7 brands</strong> and <strong style="color:var(--text-primary);font-weight:400;">475+ franchise locations</strong> at FullSpeed Automotive.<br><br>
-          For case studies and the full story: <a href="https://ianschumacher.com">ianschumacher.com â†’</a>
+          For case studies and the full story: <a href="https://ianschumacher.com">ianschumacher.com →</a>
         </p>
         <div class="hero-meta">
           <div class="hero-meta-item">
@@ -1020,15 +1044,18 @@
   </div>
 
   <!-- LIGHTBOX -->
-  <div id="lightbox" onclick="closeLightbox()">
+  <div id="lightbox">
+    <button class="lb-nav" id="lb-prev" onclick="prevLightbox(event)">&#8592;</button>
+    <button class="lb-nav" id="lb-next" onclick="nextLightbox(event)">&#8594;</button>
     <span class="lightbox-close" onclick="closeLightbox()">
       <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
       Close
     </span>
-    <img class="lightbox-img" id="lightboxImg" src="" alt="" />
+    <img class="lightbox-img" id="lightboxImg" src="" alt="" onclick="event.stopPropagation()" />
     <div class="lightbox-meta">
       <div class="lightbox-cat" id="lightboxCat"></div>
       <div class="lightbox-title" id="lightboxTitle"></div>
+      <div class="lb-counter" id="lb-counter"></div>
     </div>
   </div>
 
@@ -1042,11 +1069,11 @@
         <div class="about-label">About the work</div>
         <h2 class="about-headline">Print shop roots.<br><span>Brand system</span> thinking.</h2>
         <div class="about-body">
-          <p>I'm Ian Schumacher â€” senior graphic designer and brand strategist based in Denver, CO. Twelve years of work spanning brand identity, print production, screen printing, digital campaigns, environmental design, and apparel.</p>
-          <p>Currently the sole creative for 7 brands and 475+ franchise locations at FullSpeed Automotive. Before that, I founded Printability LLC â€” a full-service print and design studio in Bozeman, MT.</p>
+          <p>I'm Ian Schumacher — senior graphic designer and brand strategist based in Denver, CO. Twelve years of work spanning brand identity, print production, screen printing, digital campaigns, environmental design, and apparel.</p>
+          <p>Currently the sole creative for 7 brands and 475+ franchise locations at FullSpeed Automotive. Before that, I founded Printability LLC — a full-service print and design studio in Bozeman, MT.</p>
         </div>
         <a href="https://ianschumacher.com" class="about-cta" target="_blank">
-          Full case studies & process â†’
+          Full case studies & process →
         </a>
       </div>
       <div class="about-right">
@@ -1080,8 +1107,8 @@
         <a href="https://linkedin.com/in/ian-schumacher-013bb132" target="_blank">LinkedIn</a>
       </div>
       <div class="footer-meta">
-        v1.0 Â· 2026 Â·
-        <span>#0ea5e9</span> Â·
+        v1.0 · 2026 ·
+        <span>#0ea5e9</span> ·
         <span style="color:var(--mint);">#4ec994</span>
       </div>
     </div>
@@ -1132,52 +1159,105 @@
     });
 
     // â”€â”€ GALLERY FILTER â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+    // --- Gallery state ---
+    const CATS = ['all','brand','digital','print','merch','signage','packaging'];
+    let _visible = [], _idx = 0;
+
     function filterGallery(cat, btn) {
       document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
-      document.querySelectorAll('.gallery-item').forEach(item => {
-        if (cat === 'all' || item.dataset.cat === cat) {
-          item.classList.remove('hidden');
-        } else {
-          item.classList.add('hidden');
+      const items = Array.from(document.querySelectorAll('.gallery-item'));
+
+      // fade out items that are leaving
+      items.forEach(item => {
+        const show = (cat === 'all' || item.dataset.cat === cat);
+        if (!show && item.style.display !== 'none') {
+          item.classList.add('filtering-out');
         }
       });
+
+      // after fade, hide/show and animate in
+      setTimeout(() => {
+        items.forEach(item => {
+          const show = (cat === 'all' || item.dataset.cat === cat);
+          item.classList.remove('filtering-out', 'filtering-in');
+          if (show) {
+            item.style.display = '';
+            requestAnimationFrame(() => requestAnimationFrame(() => item.classList.add('filtering-in')));
+          } else {
+            item.style.display = 'none';
+          }
+        });
+        rebindCursorListeners();
+      }, 260);
     }
 
     function updateCounts() {
-      const cats = ['all','logo','print','digital','apparel','env','pkg'];
-      cats.forEach(cat => {
+      CATS.forEach(cat => {
         const el = document.getElementById('count-' + cat);
         if (!el) return;
-        const count = cat === 'all'
+        el.textContent = cat === 'all'
           ? document.querySelectorAll('.gallery-item').length
-          : document.querySelectorAll(`.gallery-item[data-cat="${cat}"]`).length;
-        el.textContent = count;
+          : document.querySelectorAll('.gallery-item[data-cat="' + cat + '"]').length;
       });
     }
     updateCounts();
 
+    function rebindCursorListeners() {
+      document.querySelectorAll('.gallery-item').forEach(el => {
+        el.onmouseenter = () => cursor && cursor.classList.add('on-work');
+        el.onmouseleave = () => cursor && cursor.classList.remove('on-work');
+      });
+    }
+
     // â”€â”€ LIGHTBOX â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+    const lb    = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lightboxImg');
+
     function openLightbox(item) {
-      const img   = item.querySelector('img');
-      const lb    = document.getElementById('lightbox');
-      const lbImg = document.getElementById('lightboxImg');
+      _visible = Array.from(document.querySelectorAll('.gallery-item'))
+                       .filter(el => el.style.display !== 'none');
+      _idx = _visible.indexOf(item);
+      _showLB(item);
+      lb.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function _showLB(item) {
+      const img = item.querySelector('img');
       document.getElementById('lightboxCat').textContent   = item.dataset.cat.toUpperCase();
       document.getElementById('lightboxTitle').textContent = item.dataset.title;
-      if (img) {
-        lbImg.src = img.src;
-        lbImg.alt = item.dataset.title;
-        lbImg.style.display = 'block';
-      } else {
-        lbImg.style.display = 'none';
-      }
-      lb.classList.add('open');
+      document.getElementById('lb-counter').textContent    = (_idx + 1) + ' / ' + _visible.length;
+      if (img) { lbImg.src = img.src; lbImg.alt = item.dataset.title; }
+      document.getElementById('lb-prev').classList.toggle('disabled', _idx === 0);
+      document.getElementById('lb-next').classList.toggle('disabled', _idx >= _visible.length - 1);
     }
+
+    function prevLightbox(e) { e && e.stopPropagation(); if (_idx > 0) { _idx--; _showLB(_visible[_idx]); } }
+    function nextLightbox(e) { e && e.stopPropagation(); if (_idx < _visible.length - 1) { _idx++; _showLB(_visible[_idx]); } }
+
     function closeLightbox() {
-      document.getElementById('lightbox').classList.remove('open');
+      lb.classList.remove('open');
+      document.body.style.overflow = '';
     }
+
+    // Close on backdrop click (not on image or buttons)
+    lb.addEventListener('click', e => { if (e.target === lb) closeLightbox(); });
+
+    // Keyboard
     document.addEventListener('keydown', e => {
+      if (!lb.classList.contains('open')) return;
       if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft')  prevLightbox();
+      if (e.key === 'ArrowRight') nextLightbox();
+    });
+
+    // Touch swipe
+    let _tx = 0;
+    lb.addEventListener('touchstart', e => { _tx = e.touches[0].clientX; }, { passive: true });
+    lb.addEventListener('touchend',   e => {
+      const dx = _tx - e.changedTouches[0].clientX;
+      if (Math.abs(dx) > 50) { dx > 0 ? nextLightbox() : prevLightbox(); }
     });
 
     // â”€â”€ SCROLL REVEAL â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
