@@ -22,7 +22,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;1,9..40,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 
   <style>
-    /* â”€â”€ TOKENS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+    /* ── TOKENS ─────────────────────────────────────────────── */
     :root {
       --sky:         #0ea5e9;
       --sky-dim:     rgba(14, 165, 233, 0.15);
@@ -43,7 +43,7 @@
       --ease:   cubic-bezier(0.16, 1, 0.3, 1);
     }
 
-    /* â”€â”€ RESET â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+    /* ── RESET ──────────────────────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; scroll-padding-top: 80px; }
     body {
@@ -57,14 +57,14 @@
     img { display: block; max-width: 100%; }
     a { color: inherit; text-decoration: none; }
 
-    /* â”€â”€ FOCUS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+    /* ── FOCUS ──────────────────────────────────────────────── */
     :focus-visible {
       outline: 2px solid var(--sky);
       outline-offset: 3px;
       border-radius: 2px;
     }
 
-    /* â”€â”€ CUSTOM CURSOR â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+    /* ── CUSTOM CURSOR ──────────────────────────────────────── */
     #cursor {
       width: 10px; height: 10px;
       background: var(--sky);
@@ -93,7 +93,7 @@
     }
     #cursor.on-work + #cursor-ring { opacity: 0; }
 
-    /* â”€â”€ NAV â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+    /* ── NAV ────────────────────────────────────────────────── */
     nav {
       position: fixed; top: 0; left: 0; right: 0;
       z-index: 100;
@@ -146,7 +146,7 @@
     }
     .nav-cta:hover { background: var(--sky-dim); border-color: var(--sky); }
 
-    /* â”€â”€ HERO â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+    /* ── HERO ───────────────────────────────────────────────── */
     #hero {
       min-height: 100vh;
       display: flex;
@@ -257,7 +257,7 @@
       50% { opacity: 1; transform: scaleY(1.1); }
     }
 
-    /* â”€â”€ FILTER BAR â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+    /* ── FILTER BAR ─────────────────────────────────────────── */
     #filter-bar {
       position: sticky;
       top: 57px;
@@ -306,7 +306,7 @@
     .filter-btn.active::after { transform: scaleX(1); }
     .filter-count { font-size: 9px; color: var(--text-tertiary); margin-left: 5px; vertical-align: super; }
 
-    /* â”€â”€ GALLERY â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+    /* ── GALLERY ────────────────────────────────────────────── */
     #gallery { max-width: 1280px; margin: 0 auto; padding: 60px 40px 120px; }
     .gallery-grid {
       display: grid;
@@ -382,7 +382,7 @@
     #lb-next { right: 24px; }
     .lb-counter { font-family: var(--mono); font-size: 11px; color: rgba(255,255,255,0.35); margin-top: 6px; letter-spacing: 0.1em; }
 
-    /* â”€â”€ LIGHTBOX â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+    /* ── LIGHTBOX ───────────────────────────────────────────── */
     #lightbox {
       position: fixed;
       inset: 0;
@@ -416,7 +416,7 @@
     .lightbox-cat { font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--sky); margin-bottom: 4px; }
     .lightbox-title { font-family: var(--display); font-weight: 600; font-size: 16px; color: var(--text-primary); }
 
-    /* â”€â”€ ABOUT STRIP â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+    /* ── ABOUT STRIP ────────────────────────────────────────── */
     #about { border-top: 1px solid var(--border); padding: 80px 0; }
     .about-inner {
       max-width: 1280px;
@@ -476,7 +476,7 @@
     .about-stat-num span { color: var(--sky); }
     .about-stat-label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-tertiary); }
 
-    /* â”€â”€ FOOTER â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+    /* ── FOOTER ─────────────────────────────────────────────── */
     footer { border-top: 1px solid var(--border); padding: 32px 0; }
     .footer-inner {
       max-width: 1280px;
@@ -496,7 +496,7 @@
     .footer-meta { font-family: var(--mono); font-size: 10px; color: var(--text-tertiary); letter-spacing: 0.04em; }
     .footer-meta span { color: var(--sky); }
 
-    /* â”€â”€ DRAGGABLE STICKER EASTER EGG â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+    /* ── DRAGGABLE STICKER EASTER EGG ───────────────────────── */
     #sticker {
       position: fixed;
       bottom: 40px; right: 40px;
@@ -522,11 +522,11 @@
     #sticker:hover { box-shadow: 0 12px 40px rgba(14,165,233,0.5); transform: scale(1.05); }
     #sticker.dragging { transform: scale(1.12) rotate(5deg); }
 
-    /* â”€â”€ SCROLL REVEAL â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+    /* ── SCROLL REVEAL ──────────────────────────────────────── */
     .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.7s var(--ease), transform 0.7s var(--ease); }
     .reveal.visible { opacity: 1; transform: none; }
 
-    /* â”€â”€ MOBILE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+    /* ── MOBILE ─────────────────────────────────────────────── */
     @media (max-width: 900px) {
       .gallery-grid { grid-template-columns: repeat(2, 1fr); }
       .gallery-item.wide { grid-column: span 2; }
@@ -646,65 +646,49 @@
   <!-- GALLERY -->
   <div id="gallery">
             <div class="gallery-grid" id="galleryGrid">
-      <div class="gallery-item wide" data-cat="brand" data-title="The Local — Stationary & Brand Kit" onclick="openLightbox(this)">
-        <img src="brand__thelocal_stationarybrandkit_wide.png" alt="The Local — Stationary & Brand Kit" loading="lazy">
-        <div class="gallery-overlay"><div class="gallery-overlay-text">The Local — Stationary & Brand Kit</div></div>
+</div>
       </div>
       <div class="gallery-item" data-cat="brand" data-title="Aspen Ridge — Logo" onclick="openLightbox(this)">
         <img src="brand_aspenridge_logo.png" alt="Aspen Ridge — Logo" loading="lazy">
         <div class="gallery-overlay"><div class="gallery-overlay-text">Aspen Ridge — Logo</div></div>
       </div>
-      <div class="gallery-item wide" data-cat="brand" data-title="Aspen Ridge — Logo" onclick="openLightbox(this)">
-        <img src="brand_aspenridge_logo_wide.png" alt="Aspen Ridge — Logo" loading="lazy">
-        <div class="gallery-overlay"><div class="gallery-overlay-text">Aspen Ridge — Logo</div></div>
+</div>
       </div>
       <div class="gallery-item" data-cat="brand" data-title="Big Horn — Logo" onclick="openLightbox(this)">
         <img src="brand_bighorn_logo.png" alt="Big Horn — Logo" loading="lazy">
         <div class="gallery-overlay"><div class="gallery-overlay-text">Big Horn — Logo</div></div>
       </div>
-      <div class="gallery-item wide" data-cat="brand" data-title="Big Horn — Logo" onclick="openLightbox(this)">
-        <img src="brand_bighorn_logo_wide.png" alt="Big Horn — Logo" loading="lazy">
-        <div class="gallery-overlay"><div class="gallery-overlay-text">Big Horn — Logo</div></div>
+</div>
       </div>
       <div class="gallery-item" data-cat="brand" data-title="Big Sky Candle — Logo" onclick="openLightbox(this)">
         <img src="brand_bigskycandle_logo.png" alt="Big Sky Candle — Logo" loading="lazy">
         <div class="gallery-overlay"><div class="gallery-overlay-text">Big Sky Candle — Logo</div></div>
       </div>
-      <div class="gallery-item wide" data-cat="brand" data-title="Big Sky Candle — Logo" onclick="openLightbox(this)">
-        <img src="brand_bigskycandle_logo_wide.png" alt="Big Sky Candle — Logo" loading="lazy">
-        <div class="gallery-overlay"><div class="gallery-overlay-text">Big Sky Candle — Logo</div></div>
+</div>
       </div>
       <div class="gallery-item" data-cat="brand" data-title="LearningRx — Style Guide" onclick="openLightbox(this)">
         <img src="brand_learningrx_styleguide.png" alt="LearningRx — Style Guide" loading="lazy">
         <div class="gallery-overlay"><div class="gallery-overlay-text">LearningRx — Style Guide</div></div>
       </div>
-      <div class="gallery-item wide" data-cat="brand" data-title="LearningRx — Style Guide" onclick="openLightbox(this)">
-        <img src="brand_learningrx_styleguide_wide.png" alt="LearningRx — Style Guide" loading="lazy">
-        <div class="gallery-overlay"><div class="gallery-overlay-text">LearningRx — Style Guide</div></div>
+</div>
       </div>
       <div class="gallery-item" data-cat="brand" data-title="Simpli — Logo" onclick="openLightbox(this)">
         <img src="brand_simpli_logo.png" alt="Simpli — Logo" loading="lazy">
         <div class="gallery-overlay"><div class="gallery-overlay-text">Simpli — Logo</div></div>
       </div>
-      <div class="gallery-item wide" data-cat="brand" data-title="Simpli — Logo" onclick="openLightbox(this)">
-        <img src="brand_simpli_logo_wide.png" alt="Simpli — Logo" loading="lazy">
-        <div class="gallery-overlay"><div class="gallery-overlay-text">Simpli — Logo</div></div>
+</div>
       </div>
       <div class="gallery-item" data-cat="brand" data-title="Smokehouse — Logo" onclick="openLightbox(this)">
         <img src="brand_smokehouse_logo.png" alt="Smokehouse — Logo" loading="lazy">
         <div class="gallery-overlay"><div class="gallery-overlay-text">Smokehouse — Logo</div></div>
       </div>
-      <div class="gallery-item wide" data-cat="brand" data-title="Smokehouse — Logo" onclick="openLightbox(this)">
-        <img src="brand_smokehouse_logo_wide.png" alt="Smokehouse — Logo" loading="lazy">
-        <div class="gallery-overlay"><div class="gallery-overlay-text">Smokehouse — Logo</div></div>
+</div>
       </div>
       <div class="gallery-item" data-cat="brand" data-title="The Local — Logo" onclick="openLightbox(this)">
         <img src="brand_thelocal_logo.png" alt="The Local — Logo" loading="lazy">
         <div class="gallery-overlay"><div class="gallery-overlay-text">The Local — Logo</div></div>
       </div>
-      <div class="gallery-item wide" data-cat="brand" data-title="The Local — Logo" onclick="openLightbox(this)">
-        <img src="brand_thelocal_logo_wide.png" alt="The Local — Logo" loading="lazy">
-        <div class="gallery-overlay"><div class="gallery-overlay-text">The Local — Logo</div></div>
+</div>
       </div>
       <div class="gallery-item" data-cat="brand" data-title="The Local — Stationary & Brand Kit" onclick="openLightbox(this)">
         <img src="brand_thelocal_stationarybrandkit.png" alt="The Local — Stationary & Brand Kit" loading="lazy">
@@ -714,29 +698,21 @@
         <img src="digital_bigskycandle_website.png" alt="Big Sky Candle — Website" loading="lazy">
         <div class="gallery-overlay"><div class="gallery-overlay-text">Big Sky Candle — Website</div></div>
       </div>
-      <div class="gallery-item wide" data-cat="digital" data-title="Big Sky Candle — Website" onclick="openLightbox(this)">
-        <img src="digital_bigskycandle_website_wide.png" alt="Big Sky Candle — Website" loading="lazy">
-        <div class="gallery-overlay"><div class="gallery-overlay-text">Big Sky Candle — Website</div></div>
+</div>
       </div>
       <div class="gallery-item" data-cat="digital" data-title="Grease Monkey — Social Media Ad" onclick="openLightbox(this)">
         <img src="digital_gm_socialmediaad.png" alt="Grease Monkey — Social Media Ad" loading="lazy">
         <div class="gallery-overlay"><div class="gallery-overlay-text">Grease Monkey — Social Media Ad</div></div>
       </div>
-      <div class="gallery-item wide" data-cat="digital" data-title="Grease Monkey — Social Media Ad" onclick="openLightbox(this)">
-        <img src="digital_gm_socialmediaad_wide.png" alt="Grease Monkey — Social Media Ad" loading="lazy">
-        <div class="gallery-overlay"><div class="gallery-overlay-text">Grease Monkey — Social Media Ad</div></div>
+</div>
       </div>
-      <div class="gallery-item wide" data-cat="digital" data-title="LearningRx — Social Post" onclick="openLightbox(this)">
-        <img src="digital_learningrx__socialpost_wide.png" alt="LearningRx — Social Post" loading="lazy">
-        <div class="gallery-overlay"><div class="gallery-overlay-text">LearningRx — Social Post</div></div>
+</div>
       </div>
       <div class="gallery-item" data-cat="digital" data-title="LearningRx — Digital Ad" onclick="openLightbox(this)">
         <img src="digital_learningrx_digitalad.png" alt="LearningRx — Digital Ad" loading="lazy">
         <div class="gallery-overlay"><div class="gallery-overlay-text">LearningRx — Digital Ad</div></div>
       </div>
-      <div class="gallery-item wide" data-cat="digital" data-title="LearningRx — Digital Ad" onclick="openLightbox(this)">
-        <img src="digital_learningrx_digitalad_wide.png" alt="LearningRx — Digital Ad" loading="lazy">
-        <div class="gallery-overlay"><div class="gallery-overlay-text">LearningRx — Digital Ad</div></div>
+</div>
       </div>
       <div class="gallery-item" data-cat="digital" data-title="LearningRx — Social Post" onclick="openLightbox(this)">
         <img src="digital_learningrx_socialpost.png" alt="LearningRx — Social Post" loading="lazy">
@@ -746,41 +722,29 @@
         <img src="digital_sd_bannerad.png" alt="SpeeDee — Banner Ad" loading="lazy">
         <div class="gallery-overlay"><div class="gallery-overlay-text">SpeeDee — Banner Ad</div></div>
       </div>
-      <div class="gallery-item wide" data-cat="digital" data-title="SpeeDee — Banner Ad" onclick="openLightbox(this)">
-        <img src="digital_sd_bannerad_wide.png" alt="SpeeDee — Banner Ad" loading="lazy">
-        <div class="gallery-overlay"><div class="gallery-overlay-text">SpeeDee — Banner Ad</div></div>
+</div>
       </div>
       <div class="gallery-item" data-cat="digital" data-title="SpeeDee — Website" onclick="openLightbox(this)">
         <img src="digital_sd_website.png" alt="SpeeDee — Website" loading="lazy">
         <div class="gallery-overlay"><div class="gallery-overlay-text">SpeeDee — Website</div></div>
       </div>
-      <div class="gallery-item wide" data-cat="digital" data-title="SpeeDee — Website" onclick="openLightbox(this)">
-        <img src="digital_sd_website_wide.png" alt="SpeeDee — Website" loading="lazy">
-        <div class="gallery-overlay"><div class="gallery-overlay-text">SpeeDee — Website</div></div>
+</div>
       </div>
       <div class="gallery-item" data-cat="digital" data-title="Smokehouse — Social Homepage" onclick="openLightbox(this)">
         <img src="digital_smokehouse_socialhomepage.png" alt="Smokehouse — Social Homepage" loading="lazy">
         <div class="gallery-overlay"><div class="gallery-overlay-text">Smokehouse — Social Homepage</div></div>
       </div>
-      <div class="gallery-item wide" data-cat="digital" data-title="Smokehouse — Social Media Ad" onclick="openLightbox(this)">
-        <img src="digital_smokehouse_socialmediaad_wide.png" alt="Smokehouse — Social Media Ad" loading="lazy">
-        <div class="gallery-overlay"><div class="gallery-overlay-text">Smokehouse — Social Media Ad</div></div>
+</div>
       </div>
       <div class="gallery-item" data-cat="digital" data-title="Smokehouse — Website" onclick="openLightbox(this)">
         <img src="digital_smokehouse_website.png" alt="Smokehouse — Website" loading="lazy">
         <div class="gallery-overlay"><div class="gallery-overlay-text">Smokehouse — Website</div></div>
       </div>
-      <div class="gallery-item wide" data-cat="digital" data-title="Smokehouse — Website" onclick="openLightbox(this)">
-        <img src="digital_smokehouse_website_wide.png" alt="Smokehouse — Website" loading="lazy">
-        <div class="gallery-overlay"><div class="gallery-overlay-text">Smokehouse — Website</div></div>
+</div>
       </div>
-      <div class="gallery-item wide" data-cat="merch" data-title="Bridger Bowl — Apparel" onclick="openLightbox(this)">
-        <img src="merch__bridgerbowl_apparel_wide.png" alt="Bridger Bowl — Apparel" loading="lazy">
-        <div class="gallery-overlay"><div class="gallery-overlay-text">Bridger Bowl — Apparel</div></div>
+</div>
       </div>
-      <div class="gallery-item wide" data-cat="merch" data-title="Pour House — Apparel" onclick="openLightbox(this)">
-        <img src="merch__pourhouse_apparel_wide.png" alt="Pour House — Apparel" loading="lazy">
-        <div class="gallery-overlay"><div class="gallery-overlay-text">Pour House — Apparel</div></div>
+</div>
       </div>
       <div class="gallery-item" data-cat="merch" data-title="Bridger Bowl — Apparel" onclick="openLightbox(this)">
         <img src="merch_bridgerbowl_apparel.png" alt="Bridger Bowl — Apparel" loading="lazy">
@@ -790,25 +754,19 @@
         <img src="merch_midtown_coaster.png" alt="Midtown — Coaster" loading="lazy">
         <div class="gallery-overlay"><div class="gallery-overlay-text">Midtown — Coaster</div></div>
       </div>
-      <div class="gallery-item wide" data-cat="merch" data-title="Midtown — Coaster" onclick="openLightbox(this)">
-        <img src="merch_midtown_coaster_wide.png" alt="Midtown — Coaster" loading="lazy">
-        <div class="gallery-overlay"><div class="gallery-overlay-text">Midtown — Coaster</div></div>
+</div>
       </div>
       <div class="gallery-item" data-cat="merch" data-title="Midtown — Menu" onclick="openLightbox(this)">
         <img src="merch_midtown_menu.png" alt="Midtown — Menu" loading="lazy">
         <div class="gallery-overlay"><div class="gallery-overlay-text">Midtown — Menu</div></div>
       </div>
-      <div class="gallery-item wide" data-cat="merch" data-title="Midtown — Menu" onclick="openLightbox(this)">
-        <img src="merch_midtown_menu_wide.png" alt="Midtown — Menu" loading="lazy">
-        <div class="gallery-overlay"><div class="gallery-overlay-text">Midtown — Menu</div></div>
+</div>
       </div>
       <div class="gallery-item" data-cat="merch" data-title="Multi-Brand — Apparel" onclick="openLightbox(this)">
         <img src="merch_multibrand_apparel.png" alt="Multi-Brand — Apparel" loading="lazy">
         <div class="gallery-overlay"><div class="gallery-overlay-text">Multi-Brand — Apparel</div></div>
       </div>
-      <div class="gallery-item wide" data-cat="merch" data-title="Multi-Brand — Apparel" onclick="openLightbox(this)">
-        <img src="merch_multibrand_apparel_wide.png" alt="Multi-Brand — Apparel" loading="lazy">
-        <div class="gallery-overlay"><div class="gallery-overlay-text">Multi-Brand — Apparel</div></div>
+</div>
       </div>
       <div class="gallery-item" data-cat="merch" data-title="Pour House — Apparel" onclick="openLightbox(this)">
         <img src="merch_pourhouse_apparel.png" alt="Pour House — Apparel" loading="lazy">
@@ -818,109 +776,79 @@
         <img src="merch_smokehouse_apparel.png" alt="Smokehouse — Apparel" loading="lazy">
         <div class="gallery-overlay"><div class="gallery-overlay-text">Smokehouse — Apparel</div></div>
       </div>
-      <div class="gallery-item wide" data-cat="merch" data-title="Smokehouse — Apparel" onclick="openLightbox(this)">
-        <img src="merch_smokehouse_apparel_wide.png" alt="Smokehouse — Apparel" loading="lazy">
-        <div class="gallery-overlay"><div class="gallery-overlay-text">Smokehouse — Apparel</div></div>
+</div>
       </div>
       <div class="gallery-item" data-cat="merch" data-title="Smokehouse — Stickers" onclick="openLightbox(this)">
         <img src="merch_smokehouse_stickers.png" alt="Smokehouse — Stickers" loading="lazy">
         <div class="gallery-overlay"><div class="gallery-overlay-text">Smokehouse — Stickers</div></div>
       </div>
-      <div class="gallery-item wide" data-cat="merch" data-title="Smokehouse — Stickers" onclick="openLightbox(this)">
-        <img src="merch_smokehouse_stickers_wide.png" alt="Smokehouse — Stickers" loading="lazy">
-        <div class="gallery-overlay"><div class="gallery-overlay-text">Smokehouse — Stickers</div></div>
+</div>
       </div>
       <div class="gallery-item" data-cat="merch" data-title="The Local — Growler" onclick="openLightbox(this)">
         <img src="merch_thelocal_growler.png" alt="The Local — Growler" loading="lazy">
         <div class="gallery-overlay"><div class="gallery-overlay-text">The Local — Growler</div></div>
       </div>
-      <div class="gallery-item wide" data-cat="merch" data-title="The Local — Growler" onclick="openLightbox(this)">
-        <img src="merch_thelocal_growler_wide.png" alt="The Local — Growler" loading="lazy">
-        <div class="gallery-overlay"><div class="gallery-overlay-text">The Local — Growler</div></div>
+</div>
       </div>
       <div class="gallery-item" data-cat="merch" data-title="The Local — Pint Glass" onclick="openLightbox(this)">
         <img src="merch_thelocal_pint.png" alt="The Local — Pint Glass" loading="lazy">
         <div class="gallery-overlay"><div class="gallery-overlay-text">The Local — Pint Glass</div></div>
       </div>
-      <div class="gallery-item wide" data-cat="merch" data-title="The Local — Pint Glass" onclick="openLightbox(this)">
-        <img src="merch_thelocal_pint_wide.png" alt="The Local — Pint Glass" loading="lazy">
-        <div class="gallery-overlay"><div class="gallery-overlay-text">The Local — Pint Glass</div></div>
+</div>
       </div>
       <div class="gallery-item" data-cat="packaging" data-title="Big Sky Candle — Label" onclick="openLightbox(this)">
         <img src="packaging_bigskycandle_label.png" alt="Big Sky Candle — Label" loading="lazy">
         <div class="gallery-overlay"><div class="gallery-overlay-text">Big Sky Candle — Label</div></div>
       </div>
-      <div class="gallery-item wide" data-cat="packaging" data-title="Big Sky Candle — Label" onclick="openLightbox(this)">
-        <img src="packaging_bigskycandle_label_wide.png" alt="Big Sky Candle — Label" loading="lazy">
-        <div class="gallery-overlay"><div class="gallery-overlay-text">Big Sky Candle — Label</div></div>
+</div>
       </div>
       <div class="gallery-item" data-cat="packaging" data-title="Big Sky Candle — Label" onclick="openLightbox(this)">
         <img src="packaging_bigskycandle_label2.png" alt="Big Sky Candle — Label" loading="lazy">
         <div class="gallery-overlay"><div class="gallery-overlay-text">Big Sky Candle — Label</div></div>
       </div>
-      <div class="gallery-item wide" data-cat="packaging" data-title="Big Sky Candle — Label" onclick="openLightbox(this)">
-        <img src="packaging_bigskycandle_label2_wide.png" alt="Big Sky Candle — Label" loading="lazy">
-        <div class="gallery-overlay"><div class="gallery-overlay-text">Big Sky Candle — Label</div></div>
+</div>
       </div>
       <div class="gallery-item" data-cat="packaging" data-title="Big Sky Candle — Package" onclick="openLightbox(this)">
         <img src="packaging_bigskycandle_package.png" alt="Big Sky Candle — Package" loading="lazy">
         <div class="gallery-overlay"><div class="gallery-overlay-text">Big Sky Candle — Package</div></div>
       </div>
-      <div class="gallery-item wide" data-cat="packaging" data-title="Big Sky Candle — Package" onclick="openLightbox(this)">
-        <img src="packaging_bigskycandle_package_wide.png" alt="Big Sky Candle — Package" loading="lazy">
-        <div class="gallery-overlay"><div class="gallery-overlay-text">Big Sky Candle — Package</div></div>
+</div>
       </div>
       <div class="gallery-item" data-cat="packaging" data-title="Grease Monkey — Event Gift Packaging" onclick="openLightbox(this)">
         <img src="packaging_gm_eventgift.png" alt="Grease Monkey — Event Gift Packaging" loading="lazy">
         <div class="gallery-overlay"><div class="gallery-overlay-text">Grease Monkey — Event Gift Packaging</div></div>
       </div>
-      <div class="gallery-item wide" data-cat="packaging" data-title="Grease Monkey — Event Gift Packaging" onclick="openLightbox(this)">
-        <img src="packaging_gm_eventgift_wide.png" alt="Grease Monkey — Event Gift Packaging" loading="lazy">
-        <div class="gallery-overlay"><div class="gallery-overlay-text">Grease Monkey — Event Gift Packaging</div></div>
+</div>
       </div>
       <div class="gallery-item" data-cat="packaging" data-title="Grease Monkey — Franchise Welcome Kit" onclick="openLightbox(this)">
         <img src="packaging_gm_welcomekit.png" alt="Grease Monkey — Franchise Welcome Kit" loading="lazy">
         <div class="gallery-overlay"><div class="gallery-overlay-text">Grease Monkey — Franchise Welcome Kit</div></div>
       </div>
-      <div class="gallery-item wide" data-cat="packaging" data-title="Grease Monkey — Franchise Welcome Kit" onclick="openLightbox(this)">
-        <img src="packaging_gm_welcomekit_wide.png" alt="Grease Monkey — Franchise Welcome Kit" loading="lazy">
-        <div class="gallery-overlay"><div class="gallery-overlay-text">Grease Monkey — Franchise Welcome Kit</div></div>
+</div>
       </div>
       <div class="gallery-item" data-cat="packaging" data-title="Simpli — Package" onclick="openLightbox(this)">
         <img src="packaging_simpli_package2.png" alt="Simpli — Package" loading="lazy">
         <div class="gallery-overlay"><div class="gallery-overlay-text">Simpli — Package</div></div>
       </div>
-      <div class="gallery-item wide" data-cat="packaging" data-title="Simpli — Package" onclick="openLightbox(this)">
-        <img src="packaging_simpli_package2_wide.png" alt="Simpli — Package" loading="lazy">
-        <div class="gallery-overlay"><div class="gallery-overlay-text">Simpli — Package</div></div>
+</div>
       </div>
-      <div class="gallery-item wide" data-cat="packaging" data-title="Simpli — Package" onclick="openLightbox(this)">
-        <img src="packaging_simpli_package3_wide.png" alt="Simpli — Package" loading="lazy">
-        <div class="gallery-overlay"><div class="gallery-overlay-text">Simpli — Package</div></div>
+</div>
       </div>
-      <div class="gallery-item wide" data-cat="packaging" data-title="Simpli — Package" onclick="openLightbox(this)">
-        <img src="packaging_simpli_package3_wide-1.png" alt="Simpli — Package" loading="lazy">
-        <div class="gallery-overlay"><div class="gallery-overlay-text">Simpli — Package</div></div>
+</div>
       </div>
       <div class="gallery-item" data-cat="packaging" data-title="Simpli — Pouch Design" onclick="openLightbox(this)">
         <img src="packaging_simpli_pouchdesign.png" alt="Simpli — Pouch Design" loading="lazy">
         <div class="gallery-overlay"><div class="gallery-overlay-text">Simpli — Pouch Design</div></div>
       </div>
-      <div class="gallery-item wide" data-cat="packaging" data-title="Simpli — Pouch Design" onclick="openLightbox(this)">
-        <img src="packaging_simpli_pouchdesign_wide.png" alt="Simpli — Pouch Design" loading="lazy">
-        <div class="gallery-overlay"><div class="gallery-overlay-text">Simpli — Pouch Design</div></div>
+</div>
       </div>
-      <div class="gallery-item wide" data-cat="packaging" data-title="Smokehouse — Pork Label" onclick="openLightbox(this)">
-        <img src="packaging_smokehouse__porklabel_wide.png" alt="Smokehouse — Pork Label" loading="lazy">
-        <div class="gallery-overlay"><div class="gallery-overlay-text">Smokehouse — Pork Label</div></div>
+</div>
       </div>
       <div class="gallery-item" data-cat="packaging" data-title="Smokehouse — Jerky Pouch" onclick="openLightbox(this)">
         <img src="packaging_smokehouse_jerkypouch.png" alt="Smokehouse — Jerky Pouch" loading="lazy">
         <div class="gallery-overlay"><div class="gallery-overlay-text">Smokehouse — Jerky Pouch</div></div>
       </div>
-      <div class="gallery-item wide" data-cat="packaging" data-title="Smokehouse — Jerky Pouch" onclick="openLightbox(this)">
-        <img src="packaging_smokehouse_jerkypouch_wide.png" alt="Smokehouse — Jerky Pouch" loading="lazy">
-        <div class="gallery-overlay"><div class="gallery-overlay-text">Smokehouse — Jerky Pouch</div></div>
+</div>
       </div>
       <div class="gallery-item" data-cat="packaging" data-title="Smokehouse — Pork Label" onclick="openLightbox(this)">
         <img src="packaging_smokehouse_porklabel.png" alt="Smokehouse — Pork Label" loading="lazy">
@@ -930,65 +858,49 @@
         <img src="print_gm_fastfoodflyer.png" alt="Grease Monkey — Fast-Food Flyer" loading="lazy">
         <div class="gallery-overlay"><div class="gallery-overlay-text">Grease Monkey — Fast-Food Flyer</div></div>
       </div>
-      <div class="gallery-item wide" data-cat="print" data-title="Grease Monkey — Fast-Food Flyer" onclick="openLightbox(this)">
-        <img src="print_gm_fastfoodflyer_wide.png" alt="Grease Monkey — Fast-Food Flyer" loading="lazy">
-        <div class="gallery-overlay"><div class="gallery-overlay-text">Grease Monkey — Fast-Food Flyer</div></div>
+</div>
       </div>
       <div class="gallery-item" data-cat="print" data-title="Grease Monkey — Direct Mailer" onclick="openLightbox(this)">
         <img src="print_gm_mailer.png" alt="Grease Monkey — Direct Mailer" loading="lazy">
         <div class="gallery-overlay"><div class="gallery-overlay-text">Grease Monkey — Direct Mailer</div></div>
       </div>
-      <div class="gallery-item wide" data-cat="print" data-title="Grease Monkey — Direct Mailer" onclick="openLightbox(this)">
-        <img src="print_gm_mailer_wide.png" alt="Grease Monkey — Direct Mailer" loading="lazy">
-        <div class="gallery-overlay"><div class="gallery-overlay-text">Grease Monkey — Direct Mailer</div></div>
+</div>
       </div>
       <div class="gallery-item" data-cat="print" data-title="LearningRx — Direct Mailer" onclick="openLightbox(this)">
         <img src="print_learningrx_mailer.png" alt="LearningRx — Direct Mailer" loading="lazy">
         <div class="gallery-overlay"><div class="gallery-overlay-text">LearningRx — Direct Mailer</div></div>
       </div>
-      <div class="gallery-item wide" data-cat="print" data-title="LearningRx — Direct Mailer" onclick="openLightbox(this)">
-        <img src="print_learningrx_mailer_wide.png" alt="LearningRx — Direct Mailer" loading="lazy">
-        <div class="gallery-overlay"><div class="gallery-overlay-text">LearningRx — Direct Mailer</div></div>
+</div>
       </div>
       <div class="gallery-item" data-cat="print" data-title="Midtown — Magazine Ad" onclick="openLightbox(this)">
         <img src="print_midtown_magazinead.png" alt="Midtown — Magazine Ad" loading="lazy">
         <div class="gallery-overlay"><div class="gallery-overlay-text">Midtown — Magazine Ad</div></div>
       </div>
-      <div class="gallery-item wide" data-cat="print" data-title="Midtown — Magazine Ad" onclick="openLightbox(this)">
-        <img src="print_midtown_magazinead_wide.png" alt="Midtown — Magazine Ad" loading="lazy">
-        <div class="gallery-overlay"><div class="gallery-overlay-text">Midtown — Magazine Ad</div></div>
+</div>
       </div>
       <div class="gallery-item" data-cat="print" data-title="Smokehouse — Magazine Ad" onclick="openLightbox(this)">
         <img src="print_smokehouse_magazinead.png" alt="Smokehouse — Magazine Ad" loading="lazy">
         <div class="gallery-overlay"><div class="gallery-overlay-text">Smokehouse — Magazine Ad</div></div>
       </div>
-      <div class="gallery-item wide" data-cat="print" data-title="Smokehouse — Magazine Ad" onclick="openLightbox(this)">
-        <img src="print_smokehouse_magazinead_wide.png" alt="Smokehouse — Magazine Ad" loading="lazy">
-        <div class="gallery-overlay"><div class="gallery-overlay-text">Smokehouse — Magazine Ad</div></div>
+</div>
       </div>
       <div class="gallery-item" data-cat="print" data-title="Smokehouse — Magazine Spotlight" onclick="openLightbox(this)">
         <img src="print_smokehouse_magazinespotlight.png" alt="Smokehouse — Magazine Spotlight" loading="lazy">
         <div class="gallery-overlay"><div class="gallery-overlay-text">Smokehouse — Magazine Spotlight</div></div>
       </div>
-      <div class="gallery-item wide" data-cat="print" data-title="Smokehouse — Magazine Spotlight" onclick="openLightbox(this)">
-        <img src="print_smokehouse_magazinespotlight_wide.png" alt="Smokehouse — Magazine Spotlight" loading="lazy">
-        <div class="gallery-overlay"><div class="gallery-overlay-text">Smokehouse — Magazine Spotlight</div></div>
+</div>
       </div>
       <div class="gallery-item" data-cat="signage" data-title="Grease Monkey — Digital Event Signage" onclick="openLightbox(this)">
         <img src="signage_gm_digitaleventsignage.png" alt="Grease Monkey — Digital Event Signage" loading="lazy">
         <div class="gallery-overlay"><div class="gallery-overlay-text">Grease Monkey — Digital Event Signage</div></div>
       </div>
-      <div class="gallery-item wide" data-cat="signage" data-title="Grease Monkey — Digital Event Signage" onclick="openLightbox(this)">
-        <img src="signage_gm_digitaleventsignage_wide.png" alt="Grease Monkey — Digital Event Signage" loading="lazy">
-        <div class="gallery-overlay"><div class="gallery-overlay-text">Grease Monkey — Digital Event Signage</div></div>
+</div>
       </div>
       <div class="gallery-item" data-cat="signage" data-title="Grease Monkey — Digital Signage" onclick="openLightbox(this)">
         <img src="signage_gm_digitalsignagestage.png" alt="Grease Monkey — Digital Signage" loading="lazy">
         <div class="gallery-overlay"><div class="gallery-overlay-text">Grease Monkey — Digital Signage</div></div>
       </div>
-      <div class="gallery-item wide" data-cat="signage" data-title="Grease Monkey — Digital Signage" onclick="openLightbox(this)">
-        <img src="signage_gm_digitalsignagestage_wide.png" alt="Grease Monkey — Digital Signage" loading="lazy">
-        <div class="gallery-overlay"><div class="gallery-overlay-text">Grease Monkey — Digital Signage</div></div>
+</div>
       </div>
       <div class="gallery-item" data-cat="signage" data-title="Grease Monkey — Digital Signage" onclick="openLightbox(this)">
         <img src="signage_gm_digitalsignagestage2.png" alt="Grease Monkey — Digital Signage" loading="lazy">
@@ -998,41 +910,31 @@
         <img src="signage_gm_displaybooth.png" alt="Grease Monkey — Display Booth" loading="lazy">
         <div class="gallery-overlay"><div class="gallery-overlay-text">Grease Monkey — Display Booth</div></div>
       </div>
-      <div class="gallery-item wide" data-cat="signage" data-title="Grease Monkey — Display Booth" onclick="openLightbox(this)">
-        <img src="signage_gm_displaybooth_wide.png" alt="Grease Monkey — Display Booth" loading="lazy">
-        <div class="gallery-overlay"><div class="gallery-overlay-text">Grease Monkey — Display Booth</div></div>
+</div>
       </div>
       <div class="gallery-item" data-cat="signage" data-title="Grease Monkey — Event Signage" onclick="openLightbox(this)">
         <img src="signage_gm_eventsignage2.png" alt="Grease Monkey — Event Signage" loading="lazy">
         <div class="gallery-overlay"><div class="gallery-overlay-text">Grease Monkey — Event Signage</div></div>
       </div>
-      <div class="gallery-item wide" data-cat="signage" data-title="Grease Monkey — Event Signage" onclick="openLightbox(this)">
-        <img src="signage_gm_eventsignage2_wide.png" alt="Grease Monkey — Event Signage" loading="lazy">
-        <div class="gallery-overlay"><div class="gallery-overlay-text">Grease Monkey — Event Signage</div></div>
+</div>
       </div>
       <div class="gallery-item" data-cat="signage" data-title="Grease Monkey — Event Signage" onclick="openLightbox(this)">
         <img src="signage_gm_eventsignage3.png" alt="Grease Monkey — Event Signage" loading="lazy">
         <div class="gallery-overlay"><div class="gallery-overlay-text">Grease Monkey — Event Signage</div></div>
       </div>
-      <div class="gallery-item wide" data-cat="signage" data-title="Grease Monkey — Event Signage" onclick="openLightbox(this)">
-        <img src="signage_gm_eventsignage3_wide.png" alt="Grease Monkey — Event Signage" loading="lazy">
-        <div class="gallery-overlay"><div class="gallery-overlay-text">Grease Monkey — Event Signage</div></div>
+</div>
       </div>
       <div class="gallery-item" data-cat="signage" data-title="The Local — Rotating Menu Display" onclick="openLightbox(this)">
         <img src="signage_thelocal_rotatingmenu.png" alt="The Local — Rotating Menu Display" loading="lazy">
         <div class="gallery-overlay"><div class="gallery-overlay-text">The Local — Rotating Menu Display</div></div>
       </div>
-      <div class="gallery-item wide" data-cat="signage" data-title="The Local — Rotating Menu Display" onclick="openLightbox(this)">
-        <img src="signage_thelocal_rotatingmenu_wide.png" alt="The Local — Rotating Menu Display" loading="lazy">
-        <div class="gallery-overlay"><div class="gallery-overlay-text">The Local — Rotating Menu Display</div></div>
+</div>
       </div>
       <div class="gallery-item" data-cat="signage" data-title="The Local — Shadow Box Display" onclick="openLightbox(this)">
         <img src="signage_thelocal_shadowbox.png" alt="The Local — Shadow Box Display" loading="lazy">
         <div class="gallery-overlay"><div class="gallery-overlay-text">The Local — Shadow Box Display</div></div>
       </div>
-      <div class="gallery-item wide" data-cat="signage" data-title="The Local — Shadow Box Display" onclick="openLightbox(this)">
-        <img src="signage_thelocal_shadowbox_wide.png" alt="The Local — Shadow Box Display" loading="lazy">
-        <div class="gallery-overlay"><div class="gallery-overlay-text">The Local — Shadow Box Display</div></div>
+</div>
       </div>
       <!-- Add more gallery items here following the same pattern -->
     </div>
@@ -1118,7 +1020,7 @@
   <div id="sticker" title="Try dragging me">SAMPLE</div>
 
   <script>
-    // â”€â”€ CURSOR â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+    // ── CURSOR ───────────────────────────────────────────────
     const cursor = document.getElementById('cursor');
     const ring   = document.getElementById('cursor-ring');
     let mx = 0, my = 0, rx = 0, ry = 0;
@@ -1143,12 +1045,12 @@
       el.addEventListener('mouseleave', () => cursor.classList.remove('on-work'));
     });
 
-    // â”€â”€ NAV SCROLL â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+    // ── NAV SCROLL ───────────────────────────────────────────
     window.addEventListener('scroll', () => {
       document.getElementById('mainNav').classList.toggle('scrolled', window.scrollY > 60);
     });
 
-    // â”€â”€ GALLERY KEYBOARD NAV â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+    // ── GALLERY KEYBOARD NAV ─────────────────────────────────
     document.querySelectorAll('.gallery-item').forEach(item => {
       item.setAttribute('role', 'button');
       item.setAttribute('tabindex', '0');
@@ -1158,7 +1060,7 @@
       });
     });
 
-    // â”€â”€ GALLERY FILTER â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+    // ── GALLERY FILTER ───────────────────────────────────────
     // --- Gallery state ---
     const CATS = ['all','brand','digital','print','merch','signage','packaging'];
     let _visible = [], _idx = 0;
@@ -1202,6 +1104,13 @@
       });
     }
     updateCounts();
+    // Mark items that have a wide version
+    document.querySelectorAll('.gallery-item img').forEach(img => {
+      const src  = img.getAttribute('src');
+      const wide = src.replace(/\.png$/i, '_wide.png').replace(/\.jpg$/i, '_wide.jpg');
+      img.closest('.gallery-item').dataset.wide = wide;
+    });
+
 
     function rebindCursorListeners() {
       document.querySelectorAll('.gallery-item').forEach(el => {
@@ -1210,7 +1119,7 @@
       });
     }
 
-    // â”€â”€ LIGHTBOX â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+    // ── LIGHTBOX ─────────────────────────────────────────────
     const lb    = document.getElementById('lightbox');
     const lbImg = document.getElementById('lightboxImg');
 
@@ -1260,7 +1169,7 @@
       if (Math.abs(dx) > 50) { dx > 0 ? nextLightbox() : prevLightbox(); }
     });
 
-    // â”€â”€ SCROLL REVEAL â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+    // ── SCROLL REVEAL ────────────────────────────────────────
     const obs = new IntersectionObserver(entries => {
       entries.forEach(e => {
         if (e.isIntersecting) {
@@ -1271,7 +1180,7 @@
     }, { threshold: 0.1 });
     document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 
-    // â”€â”€ DRAGGABLE STICKER EASTER EGG â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+    // ── DRAGGABLE STICKER EASTER EGG ────────────────────────
     const sticker = document.getElementById('sticker');
     let isDragging = false, startX, startY, origX, origY;
 
@@ -1294,10 +1203,10 @@
       sticker.classList.remove('dragging');
     });
 
-    // â”€â”€ EASTER EGG: CONSOLE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-    console.log('%c\nâ–ˆâ–ˆâ•—â–ˆâ–ˆâ–ˆâ•—  â–ˆâ–ˆâ•—â–ˆâ–ˆâ•—  â–ˆâ–ˆâ•—â–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ•—\nâ–ˆâ–ˆâ•‘â–ˆâ–ˆâ–ˆâ–ˆâ•— â–ˆâ–ˆâ•‘â–ˆâ–ˆâ•‘ â–ˆâ–ˆâ•”â•â–ˆâ–ˆâ•”â•â•â•â•â•\nâ–ˆâ–ˆâ•‘â–ˆâ–ˆâ•”â–ˆâ–ˆâ•—â–ˆâ–ˆâ•‘â–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ•”â• â–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ•—\nâ–ˆâ–ˆâ•‘â–ˆâ–ˆâ•‘â•šâ–ˆâ–ˆâ–ˆâ–ˆâ•‘â–ˆâ–ˆâ•”â•â–ˆâ–ˆâ•— â•šâ•â•â•â•â–ˆâ–ˆâ•‘\nâ–ˆâ–ˆâ•‘â–ˆâ–ˆâ•‘ â•šâ–ˆâ–ˆâ–ˆâ•‘â–ˆâ–ˆâ•‘  â–ˆâ–ˆâ•—â–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ•‘\nâ•šâ•â•â•šâ•â•  â•šâ•â•â•â•šâ•â•  â•šâ•â•â•šâ•â•â•â•â•â•â•\n\nyou found the other press room.\nian@inksandicons.com', 'color: #4ec994; font-family: monospace; font-size: 12px;');
+    // ── EASTER EGG: CONSOLE ──────────────────────────────────
+    console.log('%c\n██╗███╗  ██╗██╗  ██╗███████╗\n██║████╗ ██║██║ ██╔╝██╔â•â•â•â•╝\n██║██╔██╗██║█████╔╝ ███████╗\n██║██║╚████║██╔â•██╗ ╚â•â•â•â•██║\n██║██║ ╚███║██║  ██╗███████║\n╚â•╝╚â•╝  ╚â•â•╝╚â•╝  ╚â•╝╚â•â•â•â•â•â•╝\n\nyou found the other press room.\nian@inksandicons.com', 'color: #4ec994; font-family: monospace; font-size: 12px;');
 
-    // â”€â”€ EASTER EGG: HOVER NAME CYCLE (logo) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+    // ── EASTER EGG: HOVER NAME CYCLE (logo) ─────────────────
     const logo = document.querySelector('.nav-logo');
     const titles = ['Inks&Icons', 'Print Shop', 'Brand Wrangler', 'Screen Printer', 'Type Nerd'];
     let titleIdx = 0, titleTimer;
