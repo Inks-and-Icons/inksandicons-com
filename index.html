@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -258,305 +258,113 @@
     }
 
     /* ── FILTER BAR ─────────────────────────────────────────── */
-    #filter-bar {
-      position: sticky;
-      top: 57px;
-      z-index: 50;
-      background: rgba(13,13,13,0.92);
-      backdrop-filter: blur(16px);
+        #filter-bar {
+      position: sticky; top: 57px; z-index: 50;
+      background: rgba(13,13,13,0.94); backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--border);
     }
     .filter-inner {
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 0 40px;
-      display: flex;
-      align-items: center;
-      overflow-x: auto;
-      scrollbar-width: none;
+      max-width: 1280px; margin: 0 auto; padding: 0 40px;
+      display: flex; align-items: center; overflow-x: auto;
+      scrollbar-width: none; gap: 4px;
     }
     .filter-inner::-webkit-scrollbar { display: none; }
     .filter-btn {
-      font-family: var(--mono);
-      font-size: 11px;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--text-tertiary);
-      padding: 18px 20px;
-      border: none;
-      background: none;
-      cursor: none;
-      white-space: nowrap;
-      transition: color 0.2s;
-      position: relative;
-      border-bottom: 2px solid transparent;
-      margin-bottom: -1px;
+      font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--text-tertiary); padding: 18px 16px;
+      border: none; background: none; cursor: pointer; white-space: nowrap;
+      transition: color 0.2s; position: relative;
     }
     .filter-btn::after {
-      content: '';
-      position: absolute;
-      bottom: -1px; left: 20px; right: 20px;
-      height: 2px;
-      background: var(--sky);
-      transform: scaleX(0);
+      content: ""; position: absolute; bottom: 0; left: 16px; right: 16px;
+      height: 2px; background: var(--sky); transform: scaleX(0);
       transition: transform 0.2s var(--ease);
     }
     .filter-btn:hover { color: var(--text-primary); }
     .filter-btn.active { color: var(--sky); }
     .filter-btn.active::after { transform: scaleX(1); }
-    .filter-count { font-size: 9px; color: var(--text-tertiary); margin-left: 5px; vertical-align: super; }
-
-    /* ── GALLERY ────────────────────────────────────────────── */
-    #gallery { max-width: 1280px; margin: 0 auto; padding: 60px 40px 120px; }
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 3px;
-    }
+    .filter-count { font-size: 9px; color: var(--text-tertiary); margin-left: 3px; }
+    #gallery { max-width: 1280px; margin: 0 auto; padding: 32px 40px 120px; }
+    .gallery-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 16px; }
     .gallery-item {
-      position: relative;
-      aspect-ratio: 1;
-      overflow: hidden;
-      background: var(--bg-card);
-      cursor: none;
+      position: relative; overflow: hidden; background: var(--bg-card);
+      cursor: pointer; aspect-ratio: 1/1; border-radius: 2px;
+      transition: opacity 0.25s, transform 0.25s;
     }
     .gallery-item.wide { grid-column: span 2; aspect-ratio: 2/1; }
-    .gallery-item.tall { grid-row: span 2; aspect-ratio: 1/2; }
+    .gallery-item picture { display: block; width: 100%; height: 100%; }
     .gallery-item img {
-      width: 100%; height: 100%;
-      object-fit: cover;
-      transition: transform 0.6s var(--ease), filter 0.4s;
-      filter: saturate(0.85);
+      width: 100%; height: 100%; object-fit: cover; display: block;
+      transition: transform 0.55s var(--ease), filter 0.4s;
     }
-    .gallery-item:hover img { transform: scale(1.04); filter: saturate(1.1); }
-    .gallery-ph {
-      width: 100%; height: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      transition: border-color 0.2s, background 0.2s;
-    }
-    .gallery-item:hover .gallery-ph { border-color: rgba(14,165,233,0.2); background: var(--bg-hover); }
-    .ph-icon { width: 28px; height: 28px; opacity: 0.2; }
-    .ph-name { font-family: var(--mono); font-size: 10px; letter-spacing: 0.06em; color: var(--text-tertiary); text-align: center; padding: 0 12px; }
+    .gallery-item:hover img { transform: scale(1.05); filter: brightness(0.5); }
     .gallery-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, transparent 50%);
-      opacity: 0;
-      transition: opacity 0.3s;
-      display: flex;
-      align-items: flex-end;
-      padding: 20px;
+      position: absolute; inset: 0; display: flex; flex-direction: column;
+      align-items: center; justify-content: center; padding: 20px; pointer-events: none;
     }
-    .gallery-item:hover .gallery-overlay { opacity: 1; }
-    .overlay-cat { font-family: var(--mono); font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--sky); margin-bottom: 4px; }
-    .overlay-title { font-family: var(--display); font-weight: 600; font-size: 14px; color: #fff; letter-spacing: -0.01em; }
-    .gallery-item.hidden { display: none; }
-
-    /* -- Filter animation ------------------------------------------------- */
-    .gallery-item { transition: opacity 0.25s, transform 0.25s; }
+    .gallery-cat-label {
+      font-family: var(--mono); font-size: 9px; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--sky); margin-bottom: 8px;
+      opacity: 0; transform: translateY(6px);
+      transition: opacity 0.25s 0.04s, transform 0.25s 0.04s;
+    }
+    .gallery-title {
+      font-family: var(--display); font-weight: 700; font-size: 18px;
+      letter-spacing: 0.04em; text-transform: uppercase; color: #fff;
+      text-align: center; line-height: 1.2; text-shadow: 0 2px 16px rgba(0,0,0,0.6);
+      opacity: 0; transform: translateY(10px); transition: opacity 0.3s, transform 0.3s;
+    }
+    .gallery-item:hover .gallery-cat-label,
+    .gallery-item:hover .gallery-title { opacity: 1; transform: translateY(0); }
     .gallery-item.filtering-out { opacity: 0; transform: scale(0.94); pointer-events: none; }
-    @keyframes fadeInItem {
-      from { opacity: 0; transform: scale(0.96); }
+    .gallery-item.hidden { display: none; }
+    @keyframes fadeInGallery {
+      from { opacity: 0; transform: scale(0.97); }
       to   { opacity: 1; transform: scale(1); }
     }
-    .gallery-item.filtering-in { animation: fadeInItem 0.3s ease forwards; }
-
-    /* -- Lightbox nav ------------------------------------------------------ */
+    .gallery-item.fade-in { animation: fadeInGallery 0.35s var(--ease) forwards; }
+    @media (max-width: 1023px) { .gallery-grid { grid-template-columns: repeat(2,1fr); } }
+    @media (max-width: 640px) {
+      #gallery { padding: 20px 12px 80px; }
+      .gallery-grid { grid-template-columns: 1fr; gap: 10px; }
+      .gallery-item, .gallery-item.wide { grid-column: span 1; aspect-ratio: 16/9; }
+      .gallery-overlay {
+        background: linear-gradient(to top, rgba(0,0,0,0.78) 0%, transparent 55%);
+        align-items: flex-start; justify-content: flex-end; padding: 14px;
+      }
+      .gallery-cat-label { opacity: 1 !important; transform: none !important; color: rgba(255,255,255,0.55); margin-bottom: 2px; }
+      .gallery-title { opacity: 1 !important; transform: none !important; font-size: 13px; text-align: left; }
+      .gallery-item:hover img { transform: none; filter: none; }
+    }
+    #lightbox {
+      position: fixed; inset: 0; z-index: 200; background: rgba(0,0,0,0.96);
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none; transition: opacity 0.3s;
+    }
+    #lightbox.open { opacity: 1; pointer-events: all; }
+    .lightbox-img { max-width: 88vw; max-height: 88vh; object-fit: contain; border-radius: 2px; }
+    .lightbox-close {
+      position: absolute; top: 28px; right: 32px; font-family: var(--mono);
+      font-size: 11px; letter-spacing: 0.08em; color: rgba(255,255,255,0.45);
+      cursor: pointer; display: flex; align-items: center; gap: 8px; z-index: 201; transition: color 0.2s;
+    }
+    .lightbox-close:hover { color: #fff; }
+    .lightbox-meta { position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%); text-align: center; pointer-events: none; }
+    .lightbox-cat { font-family: var(--mono); font-size: 9px; letter-spacing: 0.12em; color: var(--sky); margin-bottom: 4px; }
+    .lightbox-title { font-family: var(--display); font-weight: 700; font-size: 20px; letter-spacing: 0.03em; text-transform: uppercase; color: #fff; }
     .lb-nav {
       position: absolute; top: 50%; transform: translateY(-50%);
       background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12);
       color: #fff; width: 48px; height: 48px; border-radius: 50%; font-size: 22px;
       cursor: pointer; display: flex; align-items: center; justify-content: center;
-      transition: background 0.2s, opacity 0.2s; z-index: 201;
-      backdrop-filter: blur(8px); line-height: 1; padding-bottom: 2px;
+      transition: background 0.2s; z-index: 201; backdrop-filter: blur(8px);
     }
-    .lb-nav:hover { background: rgba(255,255,255,0.14); }
+    .lb-nav:hover { background: rgba(255,255,255,0.15); }
     .lb-nav.disabled { opacity: 0.2; pointer-events: none; }
-    #lb-prev { left: 24px; }
-    #lb-next { right: 24px; }
-    .lb-counter { font-family: var(--mono); font-size: 11px; color: rgba(255,255,255,0.35); margin-top: 6px; letter-spacing: 0.1em; }
+    #lb-prev { left: 24px; } #lb-next { right: 24px; }
+    .lb-counter { font-family: var(--mono); font-size: 11px; color: rgba(255,255,255,0.3); margin-top: 6px; letter-spacing: 0.1em; }
 
-    /* ── LIGHTBOX ───────────────────────────────────────────── */
-    #lightbox {
-      position: fixed;
-      inset: 0;
-      z-index: 200;
-      background: rgba(0,0,0,0.95);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.3s;
-    }
-    #lightbox.open { opacity: 1; pointer-events: all; }
-    .lightbox-img { max-width: 88vw; max-height: 88vh; object-fit: contain; border-radius: 2px; }
-    .lightbox-close {
-      position: absolute;
-      top: 28px; right: 32px;
-      font-family: var(--mono);
-      font-size: 11px;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--text-tertiary);
-      cursor: none;
-      transition: color 0.2s;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .lightbox-close:hover { color: var(--sky); }
-    .lightbox-meta { position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%); text-align: center; }
-    .lightbox-cat { font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--sky); margin-bottom: 4px; }
-    .lightbox-title { font-family: var(--display); font-weight: 600; font-size: 16px; color: var(--text-primary); }
-
-    /* ── ABOUT STRIP ────────────────────────────────────────── */
-    #about { border-top: 1px solid var(--border); padding: 80px 0; }
-    .about-inner {
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 0 40px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
-      align-items: center;
-    }
-    .about-photo-wrap { position: relative; width: 200px; flex-shrink: 0; margin-bottom: 32px; }
-    .about-photo { width: 200px; height: 200px; border-radius: 3px; object-fit: cover; display: block; filter: grayscale(20%); transition: filter 0.3s; }
-    .about-photo:hover { filter: grayscale(0%); }
-    .about-label {
-      font-family: var(--mono);
-      font-size: 10px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--text-tertiary);
-      margin-bottom: 20px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-    .about-label::before { content: ''; width: 24px; height: 1px; background: var(--mint); display: inline-block; }
-    .about-headline {
-      font-family: var(--display);
-      font-weight: 800;
-      font-size: clamp(32px, 4vw, 56px);
-      letter-spacing: -0.01em;
-      line-height: 1.0;
-      color: var(--text-primary);
-      margin-bottom: 24px;
-    }
-    .about-headline span { color: var(--mint); }
-    .about-body { font-size: 15px; color: var(--text-secondary); line-height: 1.75; }
-    .about-body p + p { margin-top: 16px; }
-    .about-cta {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      margin-top: 32px;
-      font-family: var(--mono);
-      font-size: 11px;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--sky);
-      border-bottom: 1px solid rgba(14,165,233,0.3);
-      padding-bottom: 4px;
-      transition: border-color 0.2s, gap 0.2s;
-    }
-    .about-cta:hover { border-color: var(--sky); gap: 14px; }
-    .about-right { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
-    .about-stat { background: var(--bg-card); border: 1px solid var(--border); padding: 28px 24px; transition: border-color 0.2s; }
-    .about-stat:hover { border-color: rgba(14,165,233,0.2); }
-    .about-stat-num { font-family: var(--display); font-weight: 700; font-size: 36px; letter-spacing: -0.04em; line-height: 1; margin-bottom: 6px; }
-    .about-stat-num span { color: var(--sky); }
-    .about-stat-label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-tertiary); }
-
-    /* ── FOOTER ─────────────────────────────────────────────── */
-    footer { border-top: 1px solid var(--border); padding: 32px 0; }
-    .footer-inner {
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 0 40px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-    .footer-logo { font-family: var(--display); font-weight: 700; font-size: 15px; color: var(--text-tertiary); letter-spacing: -0.02em; }
-    .footer-logo span { color: var(--sky); }
-    .footer-links { display: flex; gap: 24px; }
-    .footer-links a { font-family: var(--mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-tertiary); transition: color 0.2s; }
-    .footer-links a:hover { color: var(--sky); }
-    .footer-meta { font-family: var(--mono); font-size: 10px; color: var(--text-tertiary); letter-spacing: 0.04em; }
-    .footer-meta span { color: var(--sky); }
-
-    /* ── DRAGGABLE STICKER EASTER EGG ───────────────────────── */
-    #sticker {
-      position: fixed;
-      bottom: 40px; right: 40px;
-      width: 72px; height: 72px;
-      background: var(--sky);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: var(--mono);
-      font-size: 9px;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: #fff;
-      text-align: center;
-      line-height: 1.3;
-      cursor: none;
-      z-index: 150;
-      user-select: none;
-      box-shadow: 0 8px 32px rgba(14,165,233,0.3);
-      transition: box-shadow 0.2s, transform 0.2s;
-    }
-    #sticker:hover { box-shadow: 0 12px 40px rgba(14,165,233,0.5); transform: scale(1.05); }
-    #sticker.dragging { transform: scale(1.12) rotate(5deg); }
-
-    /* ── SCROLL REVEAL ──────────────────────────────────────── */
-    .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.7s var(--ease), transform 0.7s var(--ease); }
-    .reveal.visible { opacity: 1; transform: none; }
-
-    /* ── MOBILE ─────────────────────────────────────────────── */
-    @media (max-width: 900px) {
-      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
-      .gallery-item.wide { grid-column: span 2; }
-      .gallery-item.tall { grid-row: span 1; aspect-ratio: 1; }
-      .about-inner { grid-template-columns: 1fr; gap: 48px; }
-      .nav-links { display: none; }
-    }
-    @media (max-width: 600px) {
-      .nav-inner { padding: 0 20px; }
-      .filter-inner { padding: 0 20px; }
-      #gallery { padding: 40px 20px 80px; }
-      .hero-content { padding: 0 20px; }
-      .about-inner { padding: 0 20px; }
-      .footer-inner { padding: 0 20px; flex-direction: column; text-align: center; }
-      .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 2px; }
-      .hero-headline { font-size: clamp(44px, 12vw, 80px); }
-      #sticker { width: 56px; height: 56px; font-size: 8px; bottom: 24px; right: 24px; }
-    }
-    @media (max-width: 480px) {
-      .hero-headline { font-size: clamp(40px, 10vw, 60px); }
-      .hero-bottom { flex-direction: column; align-items: flex-start; gap: 24px; }
-      .hero-meta { gap: 20px; }
-      .hero-meta-item { text-align: left; }
-      .about-stat { padding: 20px 16px; }
-      .about-stat-num { font-size: 28px; }
-      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
-      .gallery-item.wide { grid-column: span 2; }
-      .gallery-item.tall { grid-row: span 1; aspect-ratio: 1; }
-    }
-  </style>
+</style>
 </head>
 <body>
 
@@ -616,332 +424,481 @@
     </div>
   </section>
 
-  <!-- FILTER BAR -->
+    <!-- FILTER BAR -->
   <div id="filter-bar">
     <div class="filter-inner">
-      <button class=”filter-btn active” data-filter=”all” onclick=”filterGallery('all', this)”>
-        All <span class=”filter-count” id=”count-all”>—</span>
-      </button>
-      <button class=”filter-btn” data-filter=”brand” onclick=”filterGallery('brand', this)”>
-        Brand Identity <span class=”filter-count” id=”count-brand”>—</span>
-      </button>
-      <button class=”filter-btn” data-filter=”digital” onclick=”filterGallery('digital', this)”>
-        Digital <span class=”filter-count” id=”count-digital”>—</span>
-      </button>
-      <button class=”filter-btn” data-filter=”print” onclick=”filterGallery('print', this)”>
-        Print <span class=”filter-count” id=”count-print”>—</span>
-      </button>
-      <button class=”filter-btn” data-filter=”merch” onclick=”filterGallery('merch', this)”>
-        Merch <span class=”filter-count” id=”count-merch”>—</span>
-      </button>
-      <button class=”filter-btn” data-filter=”signage” onclick=”filterGallery('signage', this)”>
-        Signage <span class=”filter-count” id=”count-signage”>—</span>
-      </button>
-      <button class=”filter-btn” data-filter=”packaging” onclick=”filterGallery('packaging', this)”>
-        Packaging <span class=”filter-count” id=”count-packaging”>—</span>
-      </button>
+      <button class="filter-btn active" onclick="filterGallery('all',this)">All <sup class="filter-count" id="count-all"></sup></button>
+      <button class="filter-btn" onclick="filterGallery('brand',this)">Brand Identity <sup class="filter-count" id="count-brand"></sup></button>
+      <button class="filter-btn" onclick="filterGallery('digital',this)">Digital <sup class="filter-count" id="count-digital"></sup></button>
+      <button class="filter-btn" onclick="filterGallery('print',this)">Print <sup class="filter-count" id="count-print"></sup></button>
+      <button class="filter-btn" onclick="filterGallery('merch',this)">Merch <sup class="filter-count" id="count-merch"></sup></button>
+      <button class="filter-btn" onclick="filterGallery('signage',this)">Signage <sup class="filter-count" id="count-signage"></sup></button>
+      <button class="filter-btn" onclick="filterGallery('packaging',this)">Packaging <sup class="filter-count" id="count-packaging"></sup></button>
     </div>
   </div>
 
   <!-- GALLERY -->
   <div id="gallery">
-            <div class="gallery-grid" id="galleryGrid">
-</div>
+    <div class="gallery-grid" id="galleryGrid">
+      <div class="gallery-item wide" data-cat="brand" data-wide="brand_aspenridge_logo_wide.png" onclick="openLightbox(this)">
+        <picture>
+          <source media="(min-width: 641px)" srcset="brand_aspenridge_logo_wide.png">
+          <img src="brand_aspenridge_logo.png" alt="Aspen Ridge &#8212; Logo" loading="lazy">
+        </picture>
+        <div class="gallery-overlay">
+          <span class="gallery-cat-label">Brand Identity</span>
+          <span class="gallery-title">Aspen Ridge &#8212; Logo</span>
+        </div>
+      </div>
+      <div class="gallery-item wide" data-cat="brand" data-wide="brand_bighorn_logo_wide.png" onclick="openLightbox(this)">
+        <picture>
+          <source media="(min-width: 641px)" srcset="brand_bighorn_logo_wide.png">
+          <img src="brand_bighorn_logo.png" alt="Big Horn &#8212; Logo" loading="lazy">
+        </picture>
+        <div class="gallery-overlay">
+          <span class="gallery-cat-label">Brand Identity</span>
+          <span class="gallery-title">Big Horn &#8212; Logo</span>
+        </div>
+      </div>
+      <div class="gallery-item wide" data-cat="brand" data-wide="brand_bigskycandle_logo_wide.png" onclick="openLightbox(this)">
+        <picture>
+          <source media="(min-width: 641px)" srcset="brand_bigskycandle_logo_wide.png">
+          <img src="brand_bigskycandle_logo.png" alt="Big Sky Candle &#8212; Logo" loading="lazy">
+        </picture>
+        <div class="gallery-overlay">
+          <span class="gallery-cat-label">Brand Identity</span>
+          <span class="gallery-title">Big Sky Candle &#8212; Logo</span>
+        </div>
+      </div>
+      <div class="gallery-item wide" data-cat="brand" data-wide="brand_learningrx_styleguide_wide.png" onclick="openLightbox(this)">
+        <picture>
+          <source media="(min-width: 641px)" srcset="brand_learningrx_styleguide_wide.png">
+          <img src="brand_learningrx_styleguide.png" alt="LearningRx &#8212; Style Guide" loading="lazy">
+        </picture>
+        <div class="gallery-overlay">
+          <span class="gallery-cat-label">Brand Identity</span>
+          <span class="gallery-title">LearningRx &#8212; Style Guide</span>
+        </div>
+      </div>
+      <div class="gallery-item wide" data-cat="brand" data-wide="brand_simpli_logo_wide.png" onclick="openLightbox(this)">
+        <picture>
+          <source media="(min-width: 641px)" srcset="brand_simpli_logo_wide.png">
+          <img src="brand_simpli_logo.png" alt="Simpli &#8212; Logo" loading="lazy">
+        </picture>
+        <div class="gallery-overlay">
+          <span class="gallery-cat-label">Brand Identity</span>
+          <span class="gallery-title">Simpli &#8212; Logo</span>
+        </div>
+      </div>
+      <div class="gallery-item wide" data-cat="brand" data-wide="brand_smokehouse_logo_wide.png" onclick="openLightbox(this)">
+        <picture>
+          <source media="(min-width: 641px)" srcset="brand_smokehouse_logo_wide.png">
+          <img src="brand_smokehouse_logo.png" alt="Smokehouse &#8212; Logo" loading="lazy">
+        </picture>
+        <div class="gallery-overlay">
+          <span class="gallery-cat-label">Brand Identity</span>
+          <span class="gallery-title">Smokehouse &#8212; Logo</span>
+        </div>
+      </div>
+      <div class="gallery-item wide" data-cat="brand" data-wide="brand_thelocal_logo_wide.png" onclick="openLightbox(this)">
+        <picture>
+          <source media="(min-width: 641px)" srcset="brand_thelocal_logo_wide.png">
+          <img src="brand_thelocal_logo.png" alt="The Local &#8212; Logo" loading="lazy">
+        </picture>
+        <div class="gallery-overlay">
+          <span class="gallery-cat-label">Brand Identity</span>
+          <span class="gallery-title">The Local &#8212; Logo</span>
+        </div>
+      </div>
+      <div class="gallery-item" data-cat="brand" onclick="openLightbox(this)">
+        <img src="brand_thelocal_stationarybrandkit.png" alt="The Local &#8212; Stationery + Brand Kit" loading="lazy">
+        <div class="gallery-overlay">
+          <span class="gallery-cat-label">Brand Identity</span>
+          <span class="gallery-title">The Local &#8212; Stationery + Brand Kit</span>
+        </div>
+      </div>
+      <div class="gallery-item wide" data-cat="digital" data-wide="digital_bigskycandle_website_wide.png" onclick="openLightbox(this)">
+        <picture>
+          <source media="(min-width: 641px)" srcset="digital_bigskycandle_website_wide.png">
+          <img src="digital_bigskycandle_website.png" alt="Big Sky Candle &#8212; Website" loading="lazy">
+        </picture>
+        <div class="gallery-overlay">
+          <span class="gallery-cat-label">Digital</span>
+          <span class="gallery-title">Big Sky Candle &#8212; Website</span>
+        </div>
+      </div>
+      <div class="gallery-item wide" data-cat="digital" data-wide="digital_gm_socialmediaad_wide.png" onclick="openLightbox(this)">
+        <picture>
+          <source media="(min-width: 641px)" srcset="digital_gm_socialmediaad_wide.png">
+          <img src="digital_gm_socialmediaad.png" alt="Grease Monkey &#8212; Social Ad" loading="lazy">
+        </picture>
+        <div class="gallery-overlay">
+          <span class="gallery-cat-label">Digital</span>
+          <span class="gallery-title">Grease Monkey &#8212; Social Ad</span>
+        </div>
+      </div>
+      <div class="gallery-item wide" data-cat="digital" data-wide="digital_learningrx_digitalad_wide.png" onclick="openLightbox(this)">
+        <picture>
+          <source media="(min-width: 641px)" srcset="digital_learningrx_digitalad_wide.png">
+          <img src="digital_learningrx_digitalad.png" alt="LearningRx &#8212; Digital Ad" loading="lazy">
+        </picture>
+        <div class="gallery-overlay">
+          <span class="gallery-cat-label">Digital</span>
+          <span class="gallery-title">LearningRx &#8212; Digital Ad</span>
+        </div>
+      </div>
+      <div class="gallery-item" data-cat="digital" onclick="openLightbox(this)">
+        <img src="digital_learningrx_socialpost.png" alt="LearningRx &#8212; Social Post" loading="lazy">
+        <div class="gallery-overlay">
+          <span class="gallery-cat-label">Digital</span>
+          <span class="gallery-title">LearningRx &#8212; Social Post</span>
+        </div>
+      </div>
+      <div class="gallery-item wide" data-cat="digital" data-wide="digital_sd_bannerad_wide.png" onclick="openLightbox(this)">
+        <picture>
+          <source media="(min-width: 641px)" srcset="digital_sd_bannerad_wide.png">
+          <img src="digital_sd_bannerad.png" alt="SpeeDee &#8212; Banner Ad" loading="lazy">
+        </picture>
+        <div class="gallery-overlay">
+          <span class="gallery-cat-label">Digital</span>
+          <span class="gallery-title">SpeeDee &#8212; Banner Ad</span>
+        </div>
+      </div>
+      <div class="gallery-item wide" data-cat="digital" data-wide="digital_sd_website_wide.png" onclick="openLightbox(this)">
+        <picture>
+          <source media="(min-width: 641px)" srcset="digital_sd_website_wide.png">
+          <img src="digital_sd_website.png" alt="SpeeDee &#8212; Website" loading="lazy">
+        </picture>
+        <div class="gallery-overlay">
+          <span class="gallery-cat-label">Digital</span>
+          <span class="gallery-title">SpeeDee &#8212; Website</span>
+        </div>
+      </div>
+      <div class="gallery-item" data-cat="digital" onclick="openLightbox(this)">
+        <img src="digital_smokehouse_socialhomepage.png" alt="Smokehouse &#8212; Social Home" loading="lazy">
+        <div class="gallery-overlay">
+          <span class="gallery-cat-label">Digital</span>
+          <span class="gallery-title">Smokehouse &#8212; Social Home</span>
+        </div>
+      </div>
+      <div class="gallery-item wide" data-cat="digital" data-wide="digital_smokehouse_website_wide.png" onclick="openLightbox(this)">
+        <picture>
+          <source media="(min-width: 641px)" srcset="digital_smokehouse_website_wide.png">
+          <img src="digital_smokehouse_website.png" alt="Smokehouse &#8212; Website" loading="lazy">
+        </picture>
+        <div class="gallery-overlay">
+          <span class="gallery-cat-label">Digital</span>
+          <span class="gallery-title">Smokehouse &#8212; Website</span>
+        </div>
+      </div>
+      <div class="gallery-item" data-cat="merch" onclick="openLightbox(this)">
+        <img src="merch_bridgerbowl_apparel.png" alt="Bridger Bowl &#8212; Apparel" loading="lazy">
+        <div class="gallery-overlay">
+          <span class="gallery-cat-label">Merch</span>
+          <span class="gallery-title">Bridger Bowl &#8212; Apparel</span>
+        </div>
+      </div>
+      <div class="gallery-item wide" data-cat="merch" data-wide="merch_midtown_coaster_wide.png" onclick="openLightbox(this)">
+        <picture>
+          <source media="(min-width: 641px)" srcset="merch_midtown_coaster_wide.png">
+          <img src="merch_midtown_coaster.png" alt="Midtown &#8212; Coaster" loading="lazy">
+        </picture>
+        <div class="gallery-overlay">
+          <span class="gallery-cat-label">Merch</span>
+          <span class="gallery-title">Midtown &#8212; Coaster</span>
+        </div>
+      </div>
+      <div class="gallery-item wide" data-cat="merch" data-wide="merch_midtown_menu_wide.png" onclick="openLightbox(this)">
+        <picture>
+          <source media="(min-width: 641px)" srcset="merch_midtown_menu_wide.png">
+          <img src="merch_midtown_menu.png" alt="Midtown &#8212; Menu" loading="lazy">
+        </picture>
+        <div class="gallery-overlay">
+          <span class="gallery-cat-label">Merch</span>
+          <span class="gallery-title">Midtown &#8212; Menu</span>
+        </div>
+      </div>
+      <div class="gallery-item wide" data-cat="merch" data-wide="merch_multibrand_apparel_wide.png" onclick="openLightbox(this)">
+        <picture>
+          <source media="(min-width: 641px)" srcset="merch_multibrand_apparel_wide.png">
+          <img src="merch_multibrand_apparel.png" alt="Multi-Brand &#8212; Apparel" loading="lazy">
+        </picture>
+        <div class="gallery-overlay">
+          <span class="gallery-cat-label">Merch</span>
+          <span class="gallery-title">Multi-Brand &#8212; Apparel</span>
+        </div>
+      </div>
+      <div class="gallery-item" data-cat="merch" onclick="openLightbox(this)">
+        <img src="merch_pourhouse_apparel.png" alt="Pour House &#8212; Apparel" loading="lazy">
+        <div class="gallery-overlay">
+          <span class="gallery-cat-label">Merch</span>
+          <span class="gallery-title">Pour House &#8212; Apparel</span>
+        </div>
+      </div>
+      <div class="gallery-item wide" data-cat="merch" data-wide="merch_smokehouse_apparel_wide.png" onclick="openLightbox(this)">
+        <picture>
+          <source media="(min-width: 641px)" srcset="merch_smokehouse_apparel_wide.png">
+          <img src="merch_smokehouse_apparel.png" alt="Smokehouse &#8212; Apparel" loading="lazy">
+        </picture>
+        <div class="gallery-overlay">
+          <span class="gallery-cat-label">Merch</span>
+          <span class="gallery-title">Smokehouse &#8212; Apparel</span>
+        </div>
+      </div>
+      <div class="gallery-item wide" data-cat="merch" data-wide="merch_smokehouse_stickers_wide.png" onclick="openLightbox(this)">
+        <picture>
+          <source media="(min-width: 641px)" srcset="merch_smokehouse_stickers_wide.png">
+          <img src="merch_smokehouse_stickers.png" alt="Smokehouse &#8212; Stickers" loading="lazy">
+        </picture>
+        <div class="gallery-overlay">
+          <span class="gallery-cat-label">Merch</span>
+          <span class="gallery-title">Smokehouse &#8212; Stickers</span>
+        </div>
+      </div>
+      <div class="gallery-item wide" data-cat="merch" data-wide="merch_thelocal_growler_wide.png" onclick="openLightbox(this)">
+        <picture>
+          <source media="(min-width: 641px)" srcset="merch_thelocal_growler_wide.png">
+          <img src="merch_thelocal_growler.png" alt="The Local &#8212; Growler" loading="lazy">
+        </picture>
+        <div class="gallery-overlay">
+          <span class="gallery-cat-label">Merch</span>
+          <span class="gallery-title">The Local &#8212; Growler</span>
+        </div>
+      </div>
+      <div class="gallery-item wide" data-cat="merch" data-wide="merch_thelocal_pint_wide.png" onclick="openLightbox(this)">
+        <picture>
+          <source media="(min-width: 641px)" srcset="merch_thelocal_pint_wide.png">
+          <img src="merch_thelocal_pint.png" alt="The Local &#8212; Pint Glass" loading="lazy">
+        </picture>
+        <div class="gallery-overlay">
+          <span class="gallery-cat-label">Merch</span>
+          <span class="gallery-title">The Local &#8212; Pint Glass</span>
+        </div>
+      </div>
+      <div class="gallery-item wide" data-cat="packaging" data-wide="packaging_bigskycandle_label_wide.png" onclick="openLightbox(this)">
+        <picture>
+          <source media="(min-width: 641px)" srcset="packaging_bigskycandle_label_wide.png">
+          <img src="packaging_bigskycandle_label.png" alt="Big Sky Candle &#8212; Label" loading="lazy">
+        </picture>
+        <div class="gallery-overlay">
+          <span class="gallery-cat-label">Packaging</span>
+          <span class="gallery-title">Big Sky Candle &#8212; Label</span>
+        </div>
+      </div>
+      <div class="gallery-item wide" data-cat="packaging" data-wide="packaging_bigskycandle_label2_wide.png" onclick="openLightbox(this)">
+        <picture>
+          <source media="(min-width: 641px)" srcset="packaging_bigskycandle_label2_wide.png">
+          <img src="packaging_bigskycandle_label2.png" alt="Big Sky Candle &#8212; Label" loading="lazy">
+        </picture>
+        <div class="gallery-overlay">
+          <span class="gallery-cat-label">Packaging</span>
+          <span class="gallery-title">Big Sky Candle &#8212; Label</span>
+        </div>
+      </div>
+      <div class="gallery-item wide" data-cat="packaging" data-wide="packaging_bigskycandle_package_wide.png" onclick="openLightbox(this)">
+        <picture>
+          <source media="(min-width: 641px)" srcset="packaging_bigskycandle_package_wide.png">
+          <img src="packaging_bigskycandle_package.png" alt="Big Sky Candle &#8212; Package" loading="lazy">
+        </picture>
+        <div class="gallery-overlay">
+          <span class="gallery-cat-label">Packaging</span>
+          <span class="gallery-title">Big Sky Candle &#8212; Package</span>
+        </div>
+      </div>
+      <div class="gallery-item wide" data-cat="packaging" data-wide="packaging_gm_eventgift_wide.png" onclick="openLightbox(this)">
+        <picture>
+          <source media="(min-width: 641px)" srcset="packaging_gm_eventgift_wide.png">
+          <img src="packaging_gm_eventgift.png" alt="Grease Monkey &#8212; Event Gift" loading="lazy">
+        </picture>
+        <div class="gallery-overlay">
+          <span class="gallery-cat-label">Packaging</span>
+          <span class="gallery-title">Grease Monkey &#8212; Event Gift</span>
+        </div>
+      </div>
+      <div class="gallery-item wide" data-cat="packaging" data-wide="packaging_gm_welcomekit_wide.png" onclick="openLightbox(this)">
+        <picture>
+          <source media="(min-width: 641px)" srcset="packaging_gm_welcomekit_wide.png">
+          <img src="packaging_gm_welcomekit.png" alt="Grease Monkey &#8212; Welcome Kit" loading="lazy">
+        </picture>
+        <div class="gallery-overlay">
+          <span class="gallery-cat-label">Packaging</span>
+          <span class="gallery-title">Grease Monkey &#8212; Welcome Kit</span>
+        </div>
+      </div>
+      <div class="gallery-item wide" data-cat="packaging" data-wide="packaging_simpli_package2_wide.png" onclick="openLightbox(this)">
+        <picture>
+          <source media="(min-width: 641px)" srcset="packaging_simpli_package2_wide.png">
+          <img src="packaging_simpli_package2.png" alt="Simpli &#8212; Package" loading="lazy">
+        </picture>
+        <div class="gallery-overlay">
+          <span class="gallery-cat-label">Packaging</span>
+          <span class="gallery-title">Simpli &#8212; Package</span>
+        </div>
+      </div>
+      <div class="gallery-item wide" data-cat="packaging" data-wide="packaging_simpli_pouchdesign_wide.png" onclick="openLightbox(this)">
+        <picture>
+          <source media="(min-width: 641px)" srcset="packaging_simpli_pouchdesign_wide.png">
+          <img src="packaging_simpli_pouchdesign.png" alt="Simpli &#8212; Pouch Design" loading="lazy">
+        </picture>
+        <div class="gallery-overlay">
+          <span class="gallery-cat-label">Packaging</span>
+          <span class="gallery-title">Simpli &#8212; Pouch Design</span>
+        </div>
+      </div>
+      <div class="gallery-item wide" data-cat="packaging" data-wide="packaging_smokehouse_jerkypouch_wide.png" onclick="openLightbox(this)">
+        <picture>
+          <source media="(min-width: 641px)" srcset="packaging_smokehouse_jerkypouch_wide.png">
+          <img src="packaging_smokehouse_jerkypouch.png" alt="Smokehouse &#8212; Jerky Pouch" loading="lazy">
+        </picture>
+        <div class="gallery-overlay">
+          <span class="gallery-cat-label">Packaging</span>
+          <span class="gallery-title">Smokehouse &#8212; Jerky Pouch</span>
+        </div>
+      </div>
+      <div class="gallery-item" data-cat="packaging" onclick="openLightbox(this)">
+        <img src="packaging_smokehouse_porklabel.png" alt="Smokehouse &#8212; Pork Label" loading="lazy">
+        <div class="gallery-overlay">
+          <span class="gallery-cat-label">Packaging</span>
+          <span class="gallery-title">Smokehouse &#8212; Pork Label</span>
+        </div>
+      </div>
+      <div class="gallery-item wide" data-cat="print" data-wide="print_gm_fastfoodflyer_wide.png" onclick="openLightbox(this)">
+        <picture>
+          <source media="(min-width: 641px)" srcset="print_gm_fastfoodflyer_wide.png">
+          <img src="print_gm_fastfoodflyer.png" alt="Grease Monkey &#8212; Fast-Food Flyer" loading="lazy">
+        </picture>
+        <div class="gallery-overlay">
+          <span class="gallery-cat-label">Print</span>
+          <span class="gallery-title">Grease Monkey &#8212; Fast-Food Flyer</span>
+        </div>
+      </div>
+      <div class="gallery-item wide" data-cat="print" data-wide="print_gm_mailer_wide.png" onclick="openLightbox(this)">
+        <picture>
+          <source media="(min-width: 641px)" srcset="print_gm_mailer_wide.png">
+          <img src="print_gm_mailer.png" alt="Grease Monkey &#8212; Direct Mailer" loading="lazy">
+        </picture>
+        <div class="gallery-overlay">
+          <span class="gallery-cat-label">Print</span>
+          <span class="gallery-title">Grease Monkey &#8212; Direct Mailer</span>
+        </div>
+      </div>
+      <div class="gallery-item wide" data-cat="print" data-wide="print_learningrx_mailer_wide.png" onclick="openLightbox(this)">
+        <picture>
+          <source media="(min-width: 641px)" srcset="print_learningrx_mailer_wide.png">
+          <img src="print_learningrx_mailer.png" alt="LearningRx &#8212; Direct Mailer" loading="lazy">
+        </picture>
+        <div class="gallery-overlay">
+          <span class="gallery-cat-label">Print</span>
+          <span class="gallery-title">LearningRx &#8212; Direct Mailer</span>
+        </div>
+      </div>
+      <div class="gallery-item wide" data-cat="print" data-wide="print_midtown_magazinead_wide.png" onclick="openLightbox(this)">
+        <picture>
+          <source media="(min-width: 641px)" srcset="print_midtown_magazinead_wide.png">
+          <img src="print_midtown_magazinead.png" alt="Midtown &#8212; Magazine Ad" loading="lazy">
+        </picture>
+        <div class="gallery-overlay">
+          <span class="gallery-cat-label">Print</span>
+          <span class="gallery-title">Midtown &#8212; Magazine Ad</span>
+        </div>
+      </div>
+      <div class="gallery-item wide" data-cat="print" data-wide="print_smokehouse_magazinead_wide.png" onclick="openLightbox(this)">
+        <picture>
+          <source media="(min-width: 641px)" srcset="print_smokehouse_magazinead_wide.png">
+          <img src="print_smokehouse_magazinead.png" alt="Smokehouse &#8212; Magazine Ad" loading="lazy">
+        </picture>
+        <div class="gallery-overlay">
+          <span class="gallery-cat-label">Print</span>
+          <span class="gallery-title">Smokehouse &#8212; Magazine Ad</span>
+        </div>
+      </div>
+      <div class="gallery-item wide" data-cat="print" data-wide="print_smokehouse_magazinespotlight_wide.png" onclick="openLightbox(this)">
+        <picture>
+          <source media="(min-width: 641px)" srcset="print_smokehouse_magazinespotlight_wide.png">
+          <img src="print_smokehouse_magazinespotlight.png" alt="Smokehouse &#8212; Magazine" loading="lazy">
+        </picture>
+        <div class="gallery-overlay">
+          <span class="gallery-cat-label">Print</span>
+          <span class="gallery-title">Smokehouse &#8212; Magazine</span>
+        </div>
+      </div>
+      <div class="gallery-item wide" data-cat="signage" data-wide="signage_gm_digitaleventsignage_wide.png" onclick="openLightbox(this)">
+        <picture>
+          <source media="(min-width: 641px)" srcset="signage_gm_digitaleventsignage_wide.png">
+          <img src="signage_gm_digitaleventsignage.png" alt="Grease Monkey &#8212; Digital Event Signage" loading="lazy">
+        </picture>
+        <div class="gallery-overlay">
+          <span class="gallery-cat-label">Signage</span>
+          <span class="gallery-title">Grease Monkey &#8212; Digital Event Signage</span>
+        </div>
+      </div>
+      <div class="gallery-item wide" data-cat="signage" data-wide="signage_gm_digitalsignagestage_wide.png" onclick="openLightbox(this)">
+        <picture>
+          <source media="(min-width: 641px)" srcset="signage_gm_digitalsignagestage_wide.png">
+          <img src="signage_gm_digitalsignagestage.png" alt="Grease Monkey &#8212; Digital Signage" loading="lazy">
+        </picture>
+        <div class="gallery-overlay">
+          <span class="gallery-cat-label">Signage</span>
+          <span class="gallery-title">Grease Monkey &#8212; Digital Signage</span>
+        </div>
+      </div>
+      <div class="gallery-item" data-cat="signage" onclick="openLightbox(this)">
+        <img src="signage_gm_digitalsignagestage2.png" alt="Grease Monkey &#8212; Digital Signage" loading="lazy">
+        <div class="gallery-overlay">
+          <span class="gallery-cat-label">Signage</span>
+          <span class="gallery-title">Grease Monkey &#8212; Digital Signage</span>
+        </div>
+      </div>
+      <div class="gallery-item wide" data-cat="signage" data-wide="signage_gm_displaybooth_wide.png" onclick="openLightbox(this)">
+        <picture>
+          <source media="(min-width: 641px)" srcset="signage_gm_displaybooth_wide.png">
+          <img src="signage_gm_displaybooth.png" alt="Grease Monkey &#8212; Display Booth" loading="lazy">
+        </picture>
+        <div class="gallery-overlay">
+          <span class="gallery-cat-label">Signage</span>
+          <span class="gallery-title">Grease Monkey &#8212; Display Booth</span>
+        </div>
+      </div>
+      <div class="gallery-item wide" data-cat="signage" data-wide="signage_gm_eventsignage2_wide.png" onclick="openLightbox(this)">
+        <picture>
+          <source media="(min-width: 641px)" srcset="signage_gm_eventsignage2_wide.png">
+          <img src="signage_gm_eventsignage2.png" alt="Grease Monkey &#8212; Event Signage" loading="lazy">
+        </picture>
+        <div class="gallery-overlay">
+          <span class="gallery-cat-label">Signage</span>
+          <span class="gallery-title">Grease Monkey &#8212; Event Signage</span>
+        </div>
+      </div>
+      <div class="gallery-item wide" data-cat="signage" data-wide="signage_gm_eventsignage3_wide.png" onclick="openLightbox(this)">
+        <picture>
+          <source media="(min-width: 641px)" srcset="signage_gm_eventsignage3_wide.png">
+          <img src="signage_gm_eventsignage3.png" alt="Grease Monkey &#8212; Event Signage" loading="lazy">
+        </picture>
+        <div class="gallery-overlay">
+          <span class="gallery-cat-label">Signage</span>
+          <span class="gallery-title">Grease Monkey &#8212; Event Signage</span>
+        </div>
+      </div>
+      <div class="gallery-item wide" data-cat="signage" data-wide="signage_thelocal_rotatingmenu_wide.png" onclick="openLightbox(this)">
+        <picture>
+          <source media="(min-width: 641px)" srcset="signage_thelocal_rotatingmenu_wide.png">
+          <img src="signage_thelocal_rotatingmenu.png" alt="The Local &#8212; Rotating Menu" loading="lazy">
+        </picture>
+        <div class="gallery-overlay">
+          <span class="gallery-cat-label">Signage</span>
+          <span class="gallery-title">The Local &#8212; Rotating Menu</span>
+        </div>
+      </div>
+      <div class="gallery-item wide" data-cat="signage" data-wide="signage_thelocal_shadowbox_wide.png" onclick="openLightbox(this)">
+        <picture>
+          <source media="(min-width: 641px)" srcset="signage_thelocal_shadowbox_wide.png">
+          <img src="signage_thelocal_shadowbox.png" alt="The Local &#8212; Shadow Box" loading="lazy">
+        </picture>
+        <div class="gallery-overlay">
+          <span class="gallery-cat-label">Signage</span>
+          <span class="gallery-title">The Local &#8212; Shadow Box</span>
+        </div>
       </div>
-      <div class="gallery-item" data-cat="brand" data-title="Aspen Ridge — Logo" onclick="openLightbox(this)">
-        <img src="brand_aspenridge_logo.png" alt="Aspen Ridge — Logo" loading="lazy">
-        <div class="gallery-overlay"><div class="gallery-overlay-text">Aspen Ridge — Logo</div></div>
-      </div>
-</div>
-      </div>
-      <div class="gallery-item" data-cat="brand" data-title="Big Horn — Logo" onclick="openLightbox(this)">
-        <img src="brand_bighorn_logo.png" alt="Big Horn — Logo" loading="lazy">
-        <div class="gallery-overlay"><div class="gallery-overlay-text">Big Horn — Logo</div></div>
-      </div>
-</div>
-      </div>
-      <div class="gallery-item" data-cat="brand" data-title="Big Sky Candle — Logo" onclick="openLightbox(this)">
-        <img src="brand_bigskycandle_logo.png" alt="Big Sky Candle — Logo" loading="lazy">
-        <div class="gallery-overlay"><div class="gallery-overlay-text">Big Sky Candle — Logo</div></div>
-      </div>
-</div>
-      </div>
-      <div class="gallery-item" data-cat="brand" data-title="LearningRx — Style Guide" onclick="openLightbox(this)">
-        <img src="brand_learningrx_styleguide.png" alt="LearningRx — Style Guide" loading="lazy">
-        <div class="gallery-overlay"><div class="gallery-overlay-text">LearningRx — Style Guide</div></div>
-      </div>
-</div>
-      </div>
-      <div class="gallery-item" data-cat="brand" data-title="Simpli — Logo" onclick="openLightbox(this)">
-        <img src="brand_simpli_logo.png" alt="Simpli — Logo" loading="lazy">
-        <div class="gallery-overlay"><div class="gallery-overlay-text">Simpli — Logo</div></div>
-      </div>
-</div>
-      </div>
-      <div class="gallery-item" data-cat="brand" data-title="Smokehouse — Logo" onclick="openLightbox(this)">
-        <img src="brand_smokehouse_logo.png" alt="Smokehouse — Logo" loading="lazy">
-        <div class="gallery-overlay"><div class="gallery-overlay-text">Smokehouse — Logo</div></div>
-      </div>
-</div>
-      </div>
-      <div class="gallery-item" data-cat="brand" data-title="The Local — Logo" onclick="openLightbox(this)">
-        <img src="brand_thelocal_logo.png" alt="The Local — Logo" loading="lazy">
-        <div class="gallery-overlay"><div class="gallery-overlay-text">The Local — Logo</div></div>
-      </div>
-</div>
-      </div>
-      <div class="gallery-item" data-cat="brand" data-title="The Local — Stationary & Brand Kit" onclick="openLightbox(this)">
-        <img src="brand_thelocal_stationarybrandkit.png" alt="The Local — Stationary & Brand Kit" loading="lazy">
-        <div class="gallery-overlay"><div class="gallery-overlay-text">The Local — Stationary & Brand Kit</div></div>
-      </div>
-      <div class="gallery-item" data-cat="digital" data-title="Big Sky Candle — Website" onclick="openLightbox(this)">
-        <img src="digital_bigskycandle_website.png" alt="Big Sky Candle — Website" loading="lazy">
-        <div class="gallery-overlay"><div class="gallery-overlay-text">Big Sky Candle — Website</div></div>
-      </div>
-</div>
-      </div>
-      <div class="gallery-item" data-cat="digital" data-title="Grease Monkey — Social Media Ad" onclick="openLightbox(this)">
-        <img src="digital_gm_socialmediaad.png" alt="Grease Monkey — Social Media Ad" loading="lazy">
-        <div class="gallery-overlay"><div class="gallery-overlay-text">Grease Monkey — Social Media Ad</div></div>
-      </div>
-</div>
-      </div>
-</div>
-      </div>
-      <div class="gallery-item" data-cat="digital" data-title="LearningRx — Digital Ad" onclick="openLightbox(this)">
-        <img src="digital_learningrx_digitalad.png" alt="LearningRx — Digital Ad" loading="lazy">
-        <div class="gallery-overlay"><div class="gallery-overlay-text">LearningRx — Digital Ad</div></div>
-      </div>
-</div>
-      </div>
-      <div class="gallery-item" data-cat="digital" data-title="LearningRx — Social Post" onclick="openLightbox(this)">
-        <img src="digital_learningrx_socialpost.png" alt="LearningRx — Social Post" loading="lazy">
-        <div class="gallery-overlay"><div class="gallery-overlay-text">LearningRx — Social Post</div></div>
-      </div>
-      <div class="gallery-item" data-cat="digital" data-title="SpeeDee — Banner Ad" onclick="openLightbox(this)">
-        <img src="digital_sd_bannerad.png" alt="SpeeDee — Banner Ad" loading="lazy">
-        <div class="gallery-overlay"><div class="gallery-overlay-text">SpeeDee — Banner Ad</div></div>
-      </div>
-</div>
-      </div>
-      <div class="gallery-item" data-cat="digital" data-title="SpeeDee — Website" onclick="openLightbox(this)">
-        <img src="digital_sd_website.png" alt="SpeeDee — Website" loading="lazy">
-        <div class="gallery-overlay"><div class="gallery-overlay-text">SpeeDee — Website</div></div>
-      </div>
-</div>
-      </div>
-      <div class="gallery-item" data-cat="digital" data-title="Smokehouse — Social Homepage" onclick="openLightbox(this)">
-        <img src="digital_smokehouse_socialhomepage.png" alt="Smokehouse — Social Homepage" loading="lazy">
-        <div class="gallery-overlay"><div class="gallery-overlay-text">Smokehouse — Social Homepage</div></div>
-      </div>
-</div>
-      </div>
-      <div class="gallery-item" data-cat="digital" data-title="Smokehouse — Website" onclick="openLightbox(this)">
-        <img src="digital_smokehouse_website.png" alt="Smokehouse — Website" loading="lazy">
-        <div class="gallery-overlay"><div class="gallery-overlay-text">Smokehouse — Website</div></div>
-      </div>
-</div>
-      </div>
-</div>
-      </div>
-</div>
-      </div>
-      <div class="gallery-item" data-cat="merch" data-title="Bridger Bowl — Apparel" onclick="openLightbox(this)">
-        <img src="merch_bridgerbowl_apparel.png" alt="Bridger Bowl — Apparel" loading="lazy">
-        <div class="gallery-overlay"><div class="gallery-overlay-text">Bridger Bowl — Apparel</div></div>
-      </div>
-      <div class="gallery-item" data-cat="merch" data-title="Midtown — Coaster" onclick="openLightbox(this)">
-        <img src="merch_midtown_coaster.png" alt="Midtown — Coaster" loading="lazy">
-        <div class="gallery-overlay"><div class="gallery-overlay-text">Midtown — Coaster</div></div>
-      </div>
-</div>
-      </div>
-      <div class="gallery-item" data-cat="merch" data-title="Midtown — Menu" onclick="openLightbox(this)">
-        <img src="merch_midtown_menu.png" alt="Midtown — Menu" loading="lazy">
-        <div class="gallery-overlay"><div class="gallery-overlay-text">Midtown — Menu</div></div>
-      </div>
-</div>
-      </div>
-      <div class="gallery-item" data-cat="merch" data-title="Multi-Brand — Apparel" onclick="openLightbox(this)">
-        <img src="merch_multibrand_apparel.png" alt="Multi-Brand — Apparel" loading="lazy">
-        <div class="gallery-overlay"><div class="gallery-overlay-text">Multi-Brand — Apparel</div></div>
-      </div>
-</div>
-      </div>
-      <div class="gallery-item" data-cat="merch" data-title="Pour House — Apparel" onclick="openLightbox(this)">
-        <img src="merch_pourhouse_apparel.png" alt="Pour House — Apparel" loading="lazy">
-        <div class="gallery-overlay"><div class="gallery-overlay-text">Pour House — Apparel</div></div>
-      </div>
-      <div class="gallery-item" data-cat="merch" data-title="Smokehouse — Apparel" onclick="openLightbox(this)">
-        <img src="merch_smokehouse_apparel.png" alt="Smokehouse — Apparel" loading="lazy">
-        <div class="gallery-overlay"><div class="gallery-overlay-text">Smokehouse — Apparel</div></div>
-      </div>
-</div>
-      </div>
-      <div class="gallery-item" data-cat="merch" data-title="Smokehouse — Stickers" onclick="openLightbox(this)">
-        <img src="merch_smokehouse_stickers.png" alt="Smokehouse — Stickers" loading="lazy">
-        <div class="gallery-overlay"><div class="gallery-overlay-text">Smokehouse — Stickers</div></div>
-      </div>
-</div>
-      </div>
-      <div class="gallery-item" data-cat="merch" data-title="The Local — Growler" onclick="openLightbox(this)">
-        <img src="merch_thelocal_growler.png" alt="The Local — Growler" loading="lazy">
-        <div class="gallery-overlay"><div class="gallery-overlay-text">The Local — Growler</div></div>
-      </div>
-</div>
-      </div>
-      <div class="gallery-item" data-cat="merch" data-title="The Local — Pint Glass" onclick="openLightbox(this)">
-        <img src="merch_thelocal_pint.png" alt="The Local — Pint Glass" loading="lazy">
-        <div class="gallery-overlay"><div class="gallery-overlay-text">The Local — Pint Glass</div></div>
-      </div>
-</div>
-      </div>
-      <div class="gallery-item" data-cat="packaging" data-title="Big Sky Candle — Label" onclick="openLightbox(this)">
-        <img src="packaging_bigskycandle_label.png" alt="Big Sky Candle — Label" loading="lazy">
-        <div class="gallery-overlay"><div class="gallery-overlay-text">Big Sky Candle — Label</div></div>
-      </div>
-</div>
-      </div>
-      <div class="gallery-item" data-cat="packaging" data-title="Big Sky Candle — Label" onclick="openLightbox(this)">
-        <img src="packaging_bigskycandle_label2.png" alt="Big Sky Candle — Label" loading="lazy">
-        <div class="gallery-overlay"><div class="gallery-overlay-text">Big Sky Candle — Label</div></div>
-      </div>
-</div>
-      </div>
-      <div class="gallery-item" data-cat="packaging" data-title="Big Sky Candle — Package" onclick="openLightbox(this)">
-        <img src="packaging_bigskycandle_package.png" alt="Big Sky Candle — Package" loading="lazy">
-        <div class="gallery-overlay"><div class="gallery-overlay-text">Big Sky Candle — Package</div></div>
-      </div>
-</div>
-      </div>
-      <div class="gallery-item" data-cat="packaging" data-title="Grease Monkey — Event Gift Packaging" onclick="openLightbox(this)">
-        <img src="packaging_gm_eventgift.png" alt="Grease Monkey — Event Gift Packaging" loading="lazy">
-        <div class="gallery-overlay"><div class="gallery-overlay-text">Grease Monkey — Event Gift Packaging</div></div>
-      </div>
-</div>
-      </div>
-      <div class="gallery-item" data-cat="packaging" data-title="Grease Monkey — Franchise Welcome Kit" onclick="openLightbox(this)">
-        <img src="packaging_gm_welcomekit.png" alt="Grease Monkey — Franchise Welcome Kit" loading="lazy">
-        <div class="gallery-overlay"><div class="gallery-overlay-text">Grease Monkey — Franchise Welcome Kit</div></div>
-      </div>
-</div>
-      </div>
-      <div class="gallery-item" data-cat="packaging" data-title="Simpli — Package" onclick="openLightbox(this)">
-        <img src="packaging_simpli_package2.png" alt="Simpli — Package" loading="lazy">
-        <div class="gallery-overlay"><div class="gallery-overlay-text">Simpli — Package</div></div>
-      </div>
-</div>
-      </div>
-</div>
-      </div>
-</div>
-      </div>
-      <div class="gallery-item" data-cat="packaging" data-title="Simpli — Pouch Design" onclick="openLightbox(this)">
-        <img src="packaging_simpli_pouchdesign.png" alt="Simpli — Pouch Design" loading="lazy">
-        <div class="gallery-overlay"><div class="gallery-overlay-text">Simpli — Pouch Design</div></div>
-      </div>
-</div>
-      </div>
-</div>
-      </div>
-      <div class="gallery-item" data-cat="packaging" data-title="Smokehouse — Jerky Pouch" onclick="openLightbox(this)">
-        <img src="packaging_smokehouse_jerkypouch.png" alt="Smokehouse — Jerky Pouch" loading="lazy">
-        <div class="gallery-overlay"><div class="gallery-overlay-text">Smokehouse — Jerky Pouch</div></div>
-      </div>
-</div>
-      </div>
-      <div class="gallery-item" data-cat="packaging" data-title="Smokehouse — Pork Label" onclick="openLightbox(this)">
-        <img src="packaging_smokehouse_porklabel.png" alt="Smokehouse — Pork Label" loading="lazy">
-        <div class="gallery-overlay"><div class="gallery-overlay-text">Smokehouse — Pork Label</div></div>
-      </div>
-      <div class="gallery-item" data-cat="print" data-title="Grease Monkey — Fast-Food Flyer" onclick="openLightbox(this)">
-        <img src="print_gm_fastfoodflyer.png" alt="Grease Monkey — Fast-Food Flyer" loading="lazy">
-        <div class="gallery-overlay"><div class="gallery-overlay-text">Grease Monkey — Fast-Food Flyer</div></div>
-      </div>
-</div>
-      </div>
-      <div class="gallery-item" data-cat="print" data-title="Grease Monkey — Direct Mailer" onclick="openLightbox(this)">
-        <img src="print_gm_mailer.png" alt="Grease Monkey — Direct Mailer" loading="lazy">
-        <div class="gallery-overlay"><div class="gallery-overlay-text">Grease Monkey — Direct Mailer</div></div>
-      </div>
-</div>
-      </div>
-      <div class="gallery-item" data-cat="print" data-title="LearningRx — Direct Mailer" onclick="openLightbox(this)">
-        <img src="print_learningrx_mailer.png" alt="LearningRx — Direct Mailer" loading="lazy">
-        <div class="gallery-overlay"><div class="gallery-overlay-text">LearningRx — Direct Mailer</div></div>
-      </div>
-</div>
-      </div>
-      <div class="gallery-item" data-cat="print" data-title="Midtown — Magazine Ad" onclick="openLightbox(this)">
-        <img src="print_midtown_magazinead.png" alt="Midtown — Magazine Ad" loading="lazy">
-        <div class="gallery-overlay"><div class="gallery-overlay-text">Midtown — Magazine Ad</div></div>
-      </div>
-</div>
-      </div>
-      <div class="gallery-item" data-cat="print" data-title="Smokehouse — Magazine Ad" onclick="openLightbox(this)">
-        <img src="print_smokehouse_magazinead.png" alt="Smokehouse — Magazine Ad" loading="lazy">
-        <div class="gallery-overlay"><div class="gallery-overlay-text">Smokehouse — Magazine Ad</div></div>
-      </div>
-</div>
-      </div>
-      <div class="gallery-item" data-cat="print" data-title="Smokehouse — Magazine Spotlight" onclick="openLightbox(this)">
-        <img src="print_smokehouse_magazinespotlight.png" alt="Smokehouse — Magazine Spotlight" loading="lazy">
-        <div class="gallery-overlay"><div class="gallery-overlay-text">Smokehouse — Magazine Spotlight</div></div>
-      </div>
-</div>
-      </div>
-      <div class="gallery-item" data-cat="signage" data-title="Grease Monkey — Digital Event Signage" onclick="openLightbox(this)">
-        <img src="signage_gm_digitaleventsignage.png" alt="Grease Monkey — Digital Event Signage" loading="lazy">
-        <div class="gallery-overlay"><div class="gallery-overlay-text">Grease Monkey — Digital Event Signage</div></div>
-      </div>
-</div>
-      </div>
-      <div class="gallery-item" data-cat="signage" data-title="Grease Monkey — Digital Signage" onclick="openLightbox(this)">
-        <img src="signage_gm_digitalsignagestage.png" alt="Grease Monkey — Digital Signage" loading="lazy">
-        <div class="gallery-overlay"><div class="gallery-overlay-text">Grease Monkey — Digital Signage</div></div>
-      </div>
-</div>
-      </div>
-      <div class="gallery-item" data-cat="signage" data-title="Grease Monkey — Digital Signage" onclick="openLightbox(this)">
-        <img src="signage_gm_digitalsignagestage2.png" alt="Grease Monkey — Digital Signage" loading="lazy">
-        <div class="gallery-overlay"><div class="gallery-overlay-text">Grease Monkey — Digital Signage</div></div>
-      </div>
-      <div class="gallery-item" data-cat="signage" data-title="Grease Monkey — Display Booth" onclick="openLightbox(this)">
-        <img src="signage_gm_displaybooth.png" alt="Grease Monkey — Display Booth" loading="lazy">
-        <div class="gallery-overlay"><div class="gallery-overlay-text">Grease Monkey — Display Booth</div></div>
-      </div>
-</div>
-      </div>
-      <div class="gallery-item" data-cat="signage" data-title="Grease Monkey — Event Signage" onclick="openLightbox(this)">
-        <img src="signage_gm_eventsignage2.png" alt="Grease Monkey — Event Signage" loading="lazy">
-        <div class="gallery-overlay"><div class="gallery-overlay-text">Grease Monkey — Event Signage</div></div>
-      </div>
-</div>
-      </div>
-      <div class="gallery-item" data-cat="signage" data-title="Grease Monkey — Event Signage" onclick="openLightbox(this)">
-        <img src="signage_gm_eventsignage3.png" alt="Grease Monkey — Event Signage" loading="lazy">
-        <div class="gallery-overlay"><div class="gallery-overlay-text">Grease Monkey — Event Signage</div></div>
-      </div>
-</div>
-      </div>
-      <div class="gallery-item" data-cat="signage" data-title="The Local — Rotating Menu Display" onclick="openLightbox(this)">
-        <img src="signage_thelocal_rotatingmenu.png" alt="The Local — Rotating Menu Display" loading="lazy">
-        <div class="gallery-overlay"><div class="gallery-overlay-text">The Local — Rotating Menu Display</div></div>
-      </div>
-</div>
-      </div>
-      <div class="gallery-item" data-cat="signage" data-title="The Local — Shadow Box Display" onclick="openLightbox(this)">
-        <img src="signage_thelocal_shadowbox.png" alt="The Local — Shadow Box Display" loading="lazy">
-        <div class="gallery-overlay"><div class="gallery-overlay-text">The Local — Shadow Box Display</div></div>
-      </div>
-</div>
-      </div>
-      <!-- Add more gallery items here following the same pattern -->
-    </div>
-      </div>
-
-      <!-- Add more gallery items here following the same pattern -->
-
     </div>
   </div>
 
@@ -953,7 +910,7 @@
       <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
       Close
     </span>
-    <img class="lightbox-img" id="lightboxImg" src="" alt="" onclick="event.stopPropagation()" />
+    <img class="lightbox-img" id="lightboxImg" src="" alt="" onclick="event.stopPropagation()">
     <div class="lightbox-meta">
       <div class="lightbox-cat" id="lightboxCat"></div>
       <div class="lightbox-title" id="lightboxTitle"></div>
@@ -962,6 +919,7 @@
   </div>
 
   <!-- ABOUT STRIP -->
+
   <section id="about">
     <div class="about-inner reveal">
       <div class="about-left">
@@ -1061,115 +1019,84 @@
     });
 
     // ── GALLERY FILTER ───────────────────────────────────────
-    // --- Gallery state ---
+        // --- Gallery filter + lightbox ---
     const CATS = ['all','brand','digital','print','merch','signage','packaging'];
-    let _visible = [], _idx = 0;
+    let _visible=[], _idx=0;
 
-    function filterGallery(cat, btn) {
-      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    function filterGallery(cat,btn) {
+      document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
       btn.classList.add('active');
-      const items = Array.from(document.querySelectorAll('.gallery-item'));
-
-      // fade out items that are leaving
-      items.forEach(item => {
-        const show = (cat === 'all' || item.dataset.cat === cat);
-        if (!show && item.style.display !== 'none') {
-          item.classList.add('filtering-out');
-        }
-      });
-
-      // after fade, hide/show and animate in
-      setTimeout(() => {
-        items.forEach(item => {
-          const show = (cat === 'all' || item.dataset.cat === cat);
-          item.classList.remove('filtering-out', 'filtering-in');
-          if (show) {
-            item.style.display = '';
-            requestAnimationFrame(() => requestAnimationFrame(() => item.classList.add('filtering-in')));
-          } else {
-            item.style.display = 'none';
-          }
+      const items=Array.from(document.querySelectorAll('.gallery-item'));
+      items.forEach(i=>{i.classList.add('filtering-out');i.classList.remove('fade-in');});
+      setTimeout(()=>{
+        items.forEach(i=>{
+          const show=(cat==='all'||i.dataset.cat===cat);
+          i.classList.remove('filtering-out');
+          if(show){i.style.display='';requestAnimationFrame(()=>requestAnimationFrame(()=>i.classList.add('fade-in')));}
+          else{i.style.display='none';}
         });
-        rebindCursorListeners();
-      }, 260);
+        updateGalleryCounts();
+      },220);
     }
-
-    function updateCounts() {
-      CATS.forEach(cat => {
-        const el = document.getElementById('count-' + cat);
-        if (!el) return;
-        el.textContent = cat === 'all'
-          ? document.querySelectorAll('.gallery-item').length
-          : document.querySelectorAll('.gallery-item[data-cat="' + cat + '"]').length;
+    function updateGalleryCounts(){
+      const el=document.getElementById('count-all');
+      if(el)el.textContent=document.querySelectorAll('.gallery-item').length;
+      CATS.filter(c=>c!=='all').forEach(cat=>{
+        const e=document.getElementById('count-'+cat);
+        if(e)e.textContent=document.querySelectorAll('.gallery-item[data-cat="'+cat+'"]').length;
       });
     }
-    updateCounts();
-    // Mark items that have a wide version
-    document.querySelectorAll('.gallery-item img').forEach(img => {
-      const src  = img.getAttribute('src');
-      const wide = src.replace(/\.png$/i, '_wide.png').replace(/\.jpg$/i, '_wide.jpg');
-      img.closest('.gallery-item').dataset.wide = wide;
-    });
+    updateGalleryCounts();
 
-
-    function rebindCursorListeners() {
-      document.querySelectorAll('.gallery-item').forEach(el => {
-        el.onmouseenter = () => cursor && cursor.classList.add('on-work');
-        el.onmouseleave = () => cursor && cursor.classList.remove('on-work');
-      });
-    }
-
-    // ── LIGHTBOX ─────────────────────────────────────────────
-    const lb    = document.getElementById('lightbox');
-    const lbImg = document.getElementById('lightboxImg');
-
-    function openLightbox(item) {
-      _visible = Array.from(document.querySelectorAll('.gallery-item'))
-                       .filter(el => el.style.display !== 'none');
-      _idx = _visible.indexOf(item);
+    const lb=document.getElementById('lightbox');
+    const lbImg=document.getElementById('lightboxImg');
+    function openLightbox(item){
+      _visible=Array.from(document.querySelectorAll('.gallery-item')).filter(el=>el.style.display!=='none');
+      _idx=_visible.indexOf(item);
       _showLB(item);
       lb.classList.add('open');
-      document.body.style.overflow = 'hidden';
+      document.body.style.overflow='hidden';
     }
-
-    function _showLB(item) {
-      const img = item.querySelector('img');
-      document.getElementById('lightboxCat').textContent   = item.dataset.cat.toUpperCase();
-      document.getElementById('lightboxTitle').textContent = item.dataset.title;
-      document.getElementById('lb-counter').textContent    = (_idx + 1) + ' / ' + _visible.length;
-      if (img) { lbImg.src = img.src; lbImg.alt = item.dataset.title; }
-      document.getElementById('lb-prev').classList.toggle('disabled', _idx === 0);
-      document.getElementById('lb-next').classList.toggle('disabled', _idx >= _visible.length - 1);
+    function _showLB(item){
+      const img=item.querySelector('img');
+      const sq=img?img.getAttribute('src'):'';
+      const wide=item.dataset.wide||sq;
+      document.getElementById('lightboxCat').textContent=(item.dataset.cat||'').toUpperCase();
+      const titleEl=item.querySelector('.gallery-title');
+      document.getElementById('lightboxTitle').textContent=titleEl?titleEl.textContent:'';
+      document.getElementById('lb-counter').textContent=(_idx+1)+' / '+_visible.length;
+      document.getElementById('lb-prev').classList.toggle('disabled',_idx===0);
+      document.getElementById('lb-next').classList.toggle('disabled',_idx>=_visible.length-1);
+      if(wide&&wide!==sq){
+        const p=new Image();p.onload=()=>{lbImg.src=wide;};p.onerror=()=>{lbImg.src=sq;};p.src=wide;
+      }else if(sq){lbImg.src=sq;}
+      lbImg.alt=titleEl?titleEl.textContent:'';
     }
-
-    function prevLightbox(e) { e && e.stopPropagation(); if (_idx > 0) { _idx--; _showLB(_visible[_idx]); } }
-    function nextLightbox(e) { e && e.stopPropagation(); if (_idx < _visible.length - 1) { _idx++; _showLB(_visible[_idx]); } }
-
-    function closeLightbox() {
-      lb.classList.remove('open');
-      document.body.style.overflow = '';
-    }
-
-    // Close on backdrop click (not on image or buttons)
-    lb.addEventListener('click', e => { if (e.target === lb) closeLightbox(); });
-
-    // Keyboard
-    document.addEventListener('keydown', e => {
-      if (!lb.classList.contains('open')) return;
-      if (e.key === 'Escape') closeLightbox();
-      if (e.key === 'ArrowLeft')  prevLightbox();
-      if (e.key === 'ArrowRight') nextLightbox();
+    function prevLightbox(e){e&&e.stopPropagation();if(_idx>0){_idx--;_showLB(_visible[_idx]);}}
+    function nextLightbox(e){e&&e.stopPropagation();if(_idx<_visible.length-1){_idx++;_showLB(_visible[_idx]);}}
+    function closeLightbox(){lb.classList.remove('open');document.body.style.overflow='';}
+    lb.addEventListener('click',e=>{if(e.target===lb)closeLightbox();});
+    document.addEventListener('keydown',e=>{
+      if(!lb.classList.contains('open'))return;
+      if(e.key==='Escape')closeLightbox();
+      if(e.key==='ArrowLeft')prevLightbox();
+      if(e.key==='ArrowRight')nextLightbox();
+    });
+    let _tx=0;
+    lb.addEventListener('touchstart',e=>{_tx=e.touches[0].clientX;},{passive:true});
+    lb.addEventListener('touchend',e=>{
+      const dx=_tx-e.changedTouches[0].clientX;
+      if(Math.abs(dx)>50){dx>0?nextLightbox():prevLightbox();}
+    });
+    document.querySelectorAll('.gallery-item').forEach(el=>{
+      el.addEventListener('mouseenter',()=>cursor&&cursor.classList.add('on-work'));
+      el.addEventListener('mouseleave',()=>cursor&&cursor.classList.remove('on-work'));
+      el.setAttribute('role','button');el.setAttribute('tabindex','0');
+      el.addEventListener('keydown',ev=>{if(ev.key==='Enter')openLightbox(el);});
     });
 
-    // Touch swipe
-    let _tx = 0;
-    lb.addEventListener('touchstart', e => { _tx = e.touches[0].clientX; }, { passive: true });
-    lb.addEventListener('touchend',   e => {
-      const dx = _tx - e.changedTouches[0].clientX;
-      if (Math.abs(dx) > 50) { dx > 0 ? nextLightbox() : prevLightbox(); }
-    });
 
-    // ── SCROLL REVEAL ────────────────────────────────────────
+// ── SCROLL REVEAL ────────────────────────────────────────
     const obs = new IntersectionObserver(entries => {
       entries.forEach(e => {
         if (e.isIntersecting) {
